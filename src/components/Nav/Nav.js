@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+//import withStyles to work with class components to style
+import {withStyles} from '@material-ui/core/styles';
+
 
 const Nav = (props) => (
   <div className="nav">
