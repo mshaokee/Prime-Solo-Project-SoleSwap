@@ -10,7 +10,7 @@ const styles = theme => {
     })
 };//end styles
 
-class MainPage extends Component {
+class HomePage extends Component {
 
     componentDidMount(){
         console.log('Main Page MOUNTED', this.props.reduxState.mainPageReducer);
@@ -24,13 +24,13 @@ class MainPage extends Component {
     render() {
         return (
             <Box>
-                <h1>Main Page</h1>
+                <h1>Home Page</h1>
                 {JSON.stringify(this.props.reduxState.getShoesReducer)}
                 {this.props.reduxState.getShoesReducer.map((shoe, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} >
                             <h1>{shoe.post_name}</h1>
-                            <img src={shoe.post_image} alt={shoe.post_name} width="330" height="280"/>
+                            <img src={shoe.post_image} alt={shoe.post_name} style={{ width: 'auto', height: 'auto', maxWidth: '250px', minWidth: '250px' }} />
                             <h1>by: {shoe.username}</h1>
                         </div>
                     );//end return
@@ -43,4 +43,4 @@ class MainPage extends Component {
 
 
 const putPropsOnState = reduxState => ({reduxState})
-export default connect(putPropsOnState)(withStyles(styles)(MainPage));
+export default connect(putPropsOnState)(withStyles(styles)(HomePage));

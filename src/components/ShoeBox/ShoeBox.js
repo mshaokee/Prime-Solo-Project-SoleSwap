@@ -20,7 +20,7 @@ class ShoeBox extends Component {
           return (
             <div key={index}>
               <h1>{shoe.post_name}</h1>
-              <img src={shoe.post_image} alt={shoe.post_name} width="330" height="280" />
+              <img src={shoe.post_image} alt={shoe.post_name} style={{ width: 'auto', height: 'auto', maxWidth: '250px', minWidth: '250px' }}/>
               <h1>by: {shoe.username}</h1>
             </div>
           );//end return

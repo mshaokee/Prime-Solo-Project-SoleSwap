@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 //import pages
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import MainPage from '../MainPage/MainPage';
+import HomePage from '../HomePage/HomePage';
 import AllShoes from '../AllShoes/AllShoes';
 import BuyPage from '../BuyPage/BuyPage';
 import SellPage from '../SellPage/SellPage';
@@ -40,7 +40,7 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* display rest of pages without being protected. */}
-            <MainPage path="/home" />
+            <HomePage path="/home" />
             <AllShoes exact path="/allShoes" />
             <BuyPage exact path="/buy" />
             <SellPage exact path="/sell" />
