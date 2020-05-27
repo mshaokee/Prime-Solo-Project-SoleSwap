@@ -2,20 +2,20 @@ import axios from 'axios';
 import {takeLatest, put} from 'redux-saga/effects';
 
 //watcher saga to receive information from components
-function* watchMainPageSaga(){
-    yield takeLatest('FETCH_MAIN', fetchMain)
+function* getShoesSaga(){
+    yield takeLatest('FETCH_SHOES', fetchShoes)
 };//end watcher
 
 //generator functions
-function* fetchMain(){
-    console.log('-----> in fetchMain generator');
+function* fetchShoes(){
+    console.log('-----> in fetchShoes generator');
     //axios GET request to server.
     try{
         const response = yield axios.get('/shoes');
         //send data from our GET to our reducer
         console.log('-------------------->', response.data);
         yield put({
-            type: 'GET_MAIN',
+            type: 'GET_SHOES',
             payload: response.data
         })
     }catch(err){
@@ -23,4 +23,4 @@ function* fetchMain(){
     };//end try
 };//end fetchMain
 
-export default watchMainPageSaga;
+export default getShoesSaga;

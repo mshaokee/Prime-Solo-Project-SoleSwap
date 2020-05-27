@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import {Typography, Button, Link, Grid, Box} from '@material-ui/core';
+import { Box } from '@material-ui/core'; //Typography, Button, Link, Grid,
 
 //styles to call MUI
 const styles = theme => {
@@ -16,7 +16,7 @@ class MainPage extends Component {
         console.log('Main Page MOUNTED', this.props.reduxState.mainPageReducer);
         //dispatch to redux GET
         this.props.dispatch({
-            type: 'FETCH_MAIN'
+            type: 'FETCH_SHOES'
         });//end dispatch
     };//end componentDidMount
 
@@ -25,11 +25,13 @@ class MainPage extends Component {
         return (
             <Box>
                 <h1>Main Page</h1>
-                {JSON.stringify(this.props.reduxState.mainPageReducer)}
-                {this.props.reduxState.mainPageReducer.map((shoe, index) => {
+                {JSON.stringify(this.props.reduxState.getShoesReducer)}
+                {this.props.reduxState.getShoesReducer.map((shoe, index) => {
                     return(
                         <div key={index}>
-                            <h1>{shoe.username}</h1>
+                            <h1>{shoe.post_name}</h1>
+                            <img src={shoe.post_image} alt={shoe.post_name} width="330" height="280"/>
+                            <h1>by: {shoe.username}</h1>
                         </div>
                     );//end return
                 }//end map

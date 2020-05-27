@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import {Link} from 'react-router-dom';
 
 class LoginPage extends Component {
   state = {
@@ -65,12 +66,14 @@ class LoginPage extends Component {
             </label>
           </div>
           <div>
-            <input
+            {/* <Link to="/home"> */}
+              <input
               className="log-in"
               type="submit"
               name="submit"
               value="Log In"
             />
+            {/* </Link> */}
           </div>
         </form>
         <center>
