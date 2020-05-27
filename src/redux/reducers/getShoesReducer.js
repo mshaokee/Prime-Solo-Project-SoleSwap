@@ -1,5 +1,5 @@
 const getShoesReducer = (state = [], action) => {
-    console.log('------> in mainPageReducer', action.payload);
+    // console.log('------> in getShoesReducer');
     if (action.type === 'GET_SHOES') {
         return action.payload;
     }

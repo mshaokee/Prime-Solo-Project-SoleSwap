@@ -13,7 +13,7 @@ function* fetchShoes(){
     try{
         const response = yield axios.get('/shoes');
         //send data from our GET to our reducer
-        console.log('-------------------->', response.data);
+        console.log('GET SHOES---------------->', response.data);
         yield put({
             type: 'GET_SHOES',
             payload: response.data

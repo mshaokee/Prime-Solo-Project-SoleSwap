@@ -1,5 +1,5 @@
 const shoeBoxReducer = (state = [], action) => {
-    console.log('-------> in shoeBoxReducer', action.payload);
+    // console.log('-------> in shoeBoxReducer');
     if (action.type === 'GET_shoebox') {
         return action.payload;
     }
