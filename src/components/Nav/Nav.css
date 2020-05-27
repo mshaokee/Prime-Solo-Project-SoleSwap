@@ -34,3 +34,37 @@
 .nav-right {
   float: right;
 }
+
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  color: black;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {background-color: blueviolet;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: red;
+} */
+
