@@ -16,7 +16,7 @@ class MainPage extends Component {
         console.log('Main Page MOUNTED');
         //dispatch to redux GET
         this.props.dispatch({
-            type: 'GET_MAIN'
+            type: 'FETCH_MAIN'
         });//end dispatch
     };//end componentDidMount
 

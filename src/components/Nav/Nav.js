@@ -15,13 +15,13 @@ const styles = theme => {
 
 const Nav = (props) => (
   <div className="nav">
-    <Link to="/main">
+    <Link to="/home">
       <h2 className="nav-title">SoleSwap</h2>
     </Link>
     <div className="nav-right">
 
       {/* Show the link to the info page and the logout button if the user is logged in */}
-      <Link className="nav-link" to="/main">Home</Link>
+      <Link className="nav-link" to="/home">Home</Link>
       <Link className="nav-link" to="/shoeBox">Shoe Box</Link>
       {/* ESSENTIALLY DROPDOWN MENU */}
       {/* <Link className="nav-link">View Shoes</Link> */}

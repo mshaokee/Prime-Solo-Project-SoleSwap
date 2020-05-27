@@ -38,9 +38,9 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/main" />
+            <Redirect exact from="/" to="/home" />
             {/* display rest of pages without being protected. */}
-            <MainPage path="/main" />
+            <MainPage path="/home" />
             <AllShoes exact path="/allShoes" />
             <BuyPage exact path="/buy" />
             <SellPage exact path="/sell" />
