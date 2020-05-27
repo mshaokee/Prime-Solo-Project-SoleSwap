@@ -17,6 +17,7 @@ import BuyPage from '../BuyPage/BuyPage';
 import SellPage from '../SellPage/SellPage';
 import TradePage from '../TradePage/TradePage';
 import MyShoes from '../MyShoes/MyShoes';
+import PostDetails from '../PostDetails/PostDetails';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -46,6 +47,7 @@ class App extends Component {
             <SellPage exact path="/sell" />
             <TradePage exact path="/trade" />
             <MyShoes exact path="/myShoes" />
+            <PostDetails exact path="/details" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route exact path="/about" component={AboutPage}/>

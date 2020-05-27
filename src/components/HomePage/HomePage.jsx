@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core'; //Typography, Button, Link, Grid,
+import {Link} from 'react-router-dom';
 
 //styles to call MUI
 const styles = theme => {
@@ -25,12 +26,14 @@ class HomePage extends Component {
         return (
             <Box>
                 <h1>Home Page</h1>
-                {JSON.stringify(this.props.reduxState.getShoesReducer)}
+                {/* {JSON.stringify(this.props.reduxState.getShoesReducer)} */}
                 {this.props.reduxState.getShoesReducer.map((shoe, index) => {
                     return(
                         <div key={index} >
                             <h1>{shoe.post_name}</h1>
+                            <Link to="/details">
                             <img src={shoe.post_image} alt={shoe.post_name} style={{ width: 'auto', height: 'auto', maxWidth: '250px', minWidth: '250px' }} />
+                            </Link>
                             <h1>by: {shoe.username}</h1>
                         </div>
                     );//end return
