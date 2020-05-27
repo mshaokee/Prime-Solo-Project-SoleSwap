@@ -13,7 +13,7 @@ const styles = theme => {
 class MainPage extends Component {
 
     componentDidMount(){
-        console.log('Main Page MOUNTED');
+        console.log('Main Page MOUNTED', this.props.reduxState.mainPageReducer);
         //dispatch to redux GET
         this.props.dispatch({
             type: 'FETCH_MAIN'
@@ -25,12 +25,20 @@ class MainPage extends Component {
         return (
             <Box>
                 <h1>Main Page</h1>
-                <span>{JSON.stringify('hello')}</span>
+                {JSON.stringify(this.props.reduxState.mainPageReducer)}
+                {this.props.reduxState.mainPageReducer.map((shoe, index) => {
+                    return(
+                        <div key={index}>
+                            <h1>{shoe.username}</h1>
+                        </div>
+                    );//end return
+                }//end map
+                )}
             </Box>
         )
     }
 };//end class
 
 
-// const putPropsOnState = reduxState => ({reduxState})
-export default connect()(withStyles(styles)(MainPage));
+const putPropsOnState = reduxState => ({reduxState})
+export default connect(putPropsOnState)(withStyles(styles)(MainPage));

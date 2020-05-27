@@ -11,8 +11,9 @@ function* fetchMain(){
     console.log('-----> in fetchMain generator');
     //axios GET request to server.
     try{
-        const response = yield axios.get('/shoes')
+        const response = yield axios.get('/shoes');
         //send data from our GET to our reducer
+        console.log('-------------------->', response.data);
         yield put({
             type: 'GET_MAIN',
             payload: response.data
