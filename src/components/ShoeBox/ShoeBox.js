@@ -16,7 +16,7 @@ class ShoeBox extends Component {
     return (
       <Box>
         <h1>Shoe Box</h1>
-        {this.props.reduxState.getShoesReducer.map((shoe, index) => {
+        {this.props.reduxState.shoeBoxReducer.map((shoe, index) => {
           return (
             <div key={index}>
               <h1>{shoe.post_name}</h1>
