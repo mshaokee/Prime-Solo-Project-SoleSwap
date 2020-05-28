@@ -7,7 +7,6 @@ const styles = theme => {
     return({
         button: {
             display: 'block',
-            // marginTop:
         },
         formControl: {
             minWidth: '120px'
@@ -19,10 +18,11 @@ class CreatePost extends Component {
 
     state = {
         topic: '',
-        setTopic: '',
         open: false,
-        setOpen: false,
-        description: ''
+        description: '',
+        image: '',
+        title: '',
+        user: this.props.user.id
     }
 
     componentDidMount() {
@@ -31,20 +31,20 @@ class CreatePost extends Component {
 
     handleClose = () => {
         this.setState({
-            setOpen: false
+            open: false
         })
     };//end close of selector
 
     handleOpen = () => {
         this.setState({
-            setOpen: true
+            open: true
         })
     };//end open of selector
 
     handleChange = (event) => {
-        console.log('ASDFKASJFAKSJFALJALKDJFLAK', event.target.value);
+        console.log('You have set the topic value', event.target.value);
         this.setState({
-            setTopic: event.target.value
+            topic: event.target.value
         })
     };//end handleChange for topic selector
 
@@ -55,34 +55,55 @@ class CreatePost extends Component {
         })
     };//end shoe description
 
+    imageUrl = (event) => {
+        console.log('adding shoe url:', event.target.value);
+        this.setState({
+            image: event.target.value
+        })
+    };//end shoe description
+
+    title = (event) => {
+        console.log('adding shoe title:', event.target.value);
+        this.setState({
+            title: event.target.value
+        })
+    };//end shoe description
+
     createPost = () => {
         console.log('You have clicked Create Post.');
         this.props.dispatch({
             type: 'create_post',
             payload: {
-                description: this.state.description
+                description: this.state.description,
+                image: this.state.image,
+                catId: this.state.topic,
+                user: this.props.user.id,
+                title: this.state.title
             }
         })
     };//end create post
 
     render() {
+        console.log('Create Post MOUNTED 2', this.props.user);
         const {classes} = this.props;
         return (
             <Box>
                 <h1>CreatePost</h1>
+                <TextField onChange={(event) => this.title(event)} label="post title" variant="outlined" />
                 <TextField onChange={(event)=>this.shoeDesc(event)} label="description of shoe" variant="outlined" />
+                <TextField onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
                 {/* <Button onClick={this.handleOpen}>OPEN ME</Button> */}
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
-                    <Select open={this.state.open} 
+                    <Select
+                    open={this.state.open} 
                     onClose={this.handleClose} 
                     onOpen={this.handleOpen} 
                     value={this.state.topic} 
                     onChange={(event)=>this.handleChange(event)}>
-                        <MenuItem value="">None</MenuItem>
-                        <MenuItem value="Buy">Buy</MenuItem>
-                        <MenuItem value="Sell">Sell</MenuItem>
-                        <MenuItem value="Trade">Trade</MenuItem>
+                        <MenuItem value={1}><em>Buy</em></MenuItem>
+                        <MenuItem value={2}><em>Sell</em></MenuItem>
+                        <MenuItem value={3}><em>Trade</em></MenuItem>
                     </Select>
                 </FormControl>
 
@@ -92,5 +113,6 @@ class CreatePost extends Component {
     }
 };//end class
 
+const reduxStateOnProps = state => ({user}) => ({user: state.user});
 // const putPropsOnState = reduxState => ({reduxState})
-export default connect()(withStyles(styles)(CreatePost));
+export default connect(reduxStateOnProps)(withStyles(styles)(CreatePost));

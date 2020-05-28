@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     console.log('in /shoes GET');
     // query string for Home page
-    let queryString = `SELECT "post_id", "post_name", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post"."id", "post_name", "post_image", "post_date", "username" FROM "post" 
                        JOIN "user" ON "post".user_id = "user".id ORDER BY "post_date" ASC LIMIT '6';`;
     pool.query(queryString).then(result => {
         console.log('back from GET:', result.rows);
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 router.get('/shoebox', (req, res) => {
     console.log('in /shoes/shoebox GET');
     //query string for Shoe Box page
-    let queryString = `SELECT "post_id", "post_name", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post"."id", "post_name", "post_image", "post_date", "username" FROM "post" 
                        JOIN "user" ON "post".user_id = "user".id ORDER BY "post_date";`;
     pool.query(queryString).then(result => {
         console.log('back from /shoes/shoebox GET', result.rows);
@@ -31,7 +31,26 @@ router.get('/shoebox', (req, res) => {
         console.log('Error in /shoes/shoebox GET');
         res.sendStatus(500);
     })//end pool query
-    
 });//end get router for Shoe Box
+
+//POST route for creating posts
+router.post('/addShoe', (req, res) => {
+    console.log('in /shoes/addShoe POST', req.body);
+    let image = req.body.image;
+    let description = req.body.description;
+    let id = req.body.user;
+    let catId = req.body.catId;
+    let title = req.body.title;
+    //queryString
+    let queryString = `INSERT INTO "post" ("post_name", "post_body", "post_image", "post_cat", "user_id")
+                       VALUES ($1, $2, $3, $4, $5);`
+    pool.query(queryString, [title, description, image, catId, id]).then((result)=> {
+        res.sendStatus(201);
+    }).catch((error)=> {
+        res.sendStatus(500);
+        console.log('Error in /shoes/addShoe:', error)
+    })
+});//end post route
+
 
 module.exports = router;
