@@ -7,18 +7,26 @@ import { Link } from 'react-router-dom';
 class BuyPage extends Component {
 
     componentDidMount() {
-        console.log('Buy Page MOUNTED')
+        console.log('Buy Page MOUNTED',)
         this.props.dispatch({
             type: 'fetch_buy'
         })
     }
 
     render() {
+        console.log('CHECKING STATE OF USER', this.props.reduxState.user);
+        
         return (
             <Box>
                 <h1>BuyPage</h1>
                 <br />
-                <Link to="/create"><button>Create Post</button></Link>
+                {/* only shows Create Post button if a user is logged in! */}
+                {this.props.user.id && (
+                    <>
+                        <Link to="/create"><button>Create Post</button></Link>
+                    </>
+                )}
+
                 {this.props.reduxState.buyReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
@@ -33,6 +41,6 @@ class BuyPage extends Component {
     }
 };//end class
 
-// const mapStateToProps = state => ({ user: state.user, });
-const putPropsOnState = reduxState => ({ reduxState });
+// const mapStateToProps = state => ({ user: state.user });
+const putPropsOnState = reduxState => ({ reduxState, user: reduxState.user });
 export default connect(putPropsOnState)(BuyPage);
