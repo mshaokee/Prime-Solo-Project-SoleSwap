@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Box } from '@material-ui/core';
-import SelectShoe from '../SelectShoe/SelectShoe';
+import BuyShoeDetails from './BuyShoeDetails';
 import { Link } from 'react-router-dom';
 
 class BuyPage extends Component {
 
     componentDidMount() {
-        console.log('Buy Page MOUNTED', this.props.reduxState.user)
+        console.log('Buy Page MOUNTED')
         this.props.dispatch({
             type: 'fetch_buy'
         })
@@ -17,13 +17,12 @@ class BuyPage extends Component {
         return (
             <Box>
                 <h1>BuyPage</h1>
-                {/* {this.props.user.id} */}
                 <br />
                 <Link to="/create"><button>Create Post</button></Link>
-                {this.props.reduxState.getShoesReducer.map((shoe, index) => {
+                {this.props.reduxState.buyReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
-                            <SelectShoe shoe={shoe} />
+                            <BuyShoeDetails shoe={shoe} />
                         </div>
                     )
                 }//end map
