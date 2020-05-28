@@ -18,15 +18,14 @@ class PostDetails extends Component {
     render() {
         return (
             <Box>
-                <h1>Post Title</h1>
+                <h1>{this.state.postName}</h1>
                 {/* // POST DATA CONTAINING IMAGE, TITLE, DESCRIPTION OF POST, USER */}
-                {JSON.stringify(this.state.postName)}
-                {/* <h1>{this.state}</h1> */}
+                {/* {JSON.stringify(this.state.postName)} */}
+                <img src={this.state.image} alt={this.state.postName} style={{ width: 'auto', height: 'auto', maxWidth: '450px', minWidth: '450px' }}/>
             </Box>
         )
     }
 };//end class
-
 
 
 const putPropsOnState = reduxState => ({ reduxState })
