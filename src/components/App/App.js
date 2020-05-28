@@ -19,6 +19,7 @@ import TradePage from '../TradePage/TradePage';
 import MyShoes from '../MyShoes/MyShoes';
 import PostDetails from '../PostDetails/PostDetails';
 import CreatePost from '../CreatePost/CreatePost';
+import BuySelectShoe from '../BuyPage/BuySelectShoe';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -45,6 +46,7 @@ class App extends Component {
             <HomePage path="/home" />
             <AllShoes exact path="/allShoes" />
             <BuyPage exact path="/buy" />
+            <BuySelectShoe exact path="/buy/details" />
             <SellPage exact path="/sell" />
             <TradePage exact path="/trade" />
             <MyShoes exact path="/myShoes" />
