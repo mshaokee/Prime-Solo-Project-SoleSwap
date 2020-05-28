@@ -8,6 +8,9 @@ class BuyPage extends Component {
 
     componentDidMount() {
         console.log('Buy Page MOUNTED', this.props.reduxState.user)
+        this.props.dispatch({
+            type: 'fetch_buy'
+        })
     }
 
     render() {
@@ -32,6 +35,5 @@ class BuyPage extends Component {
 };//end class
 
 // const mapStateToProps = state => ({ user: state.user, });
-//reduxState.user should be same thing.
 const putPropsOnState = reduxState => ({ reduxState });
 export default connect(putPropsOnState)(BuyPage);
