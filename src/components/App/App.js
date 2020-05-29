@@ -55,7 +55,7 @@ class App extends Component {
             <Route exact path="/trade" component={TradePage}/>
             <Route exact path="/myShoes" component={MyShoes}/>
             <Route exact path="/details" component={PostDetails}/>
-            <CreatePost exact path="/create" />
+            <Route exact path="/create" component={CreatePost}/>
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route exact path="/about" component={AboutPage}/>

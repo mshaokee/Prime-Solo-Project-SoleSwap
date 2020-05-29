@@ -7,6 +7,7 @@ import shoeBoxReducer from './shoeBoxReducer';
 import selectShoeReducer from './selectShoeReducer';
 import buyReducer from './buyReducer';
 import sellReducer from './sellReducer';
+import getSellDetail from './getSellDetail';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   selectShoeReducer, //transfers data on click of shoe
   buyReducer, //gets data specifically for buy page
   sellReducer, //sell reducer
+  getSellDetail, //get sell details
 });
 
 export default rootReducer;
