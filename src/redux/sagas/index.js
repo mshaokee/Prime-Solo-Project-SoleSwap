@@ -7,6 +7,7 @@ import shoeBoxSaga from './shoeBoxSaga';
 import selectShoeSaga from './selectShoeSaga'
 import createSaga from './createSaga';
 import buyShoesSaga from './buyShoesSaga';
+import sellShoesSaga from './sellShoesSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     selectShoeSaga(),
     createSaga(),
     buyShoesSaga(),
+    sellShoesSaga(),
   ]);
 }

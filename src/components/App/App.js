@@ -20,7 +20,8 @@ import MyShoes from '../MyShoes/MyShoes';
 import PostDetails from '../PostDetails/PostDetails';
 import CreatePost from '../CreatePost/CreatePost';
 import BuySelectShoe from '../BuyPage/BuySelectShoe';
-// import BuyShoeDetails from '../BuyShoesDetails/BuyShoeDetails';
+import SellSelectShoe from '../SellPage/SellSelectShoe';
+
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -39,20 +40,21 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Route path="/" component={Nav} />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* display rest of pages without being protected. */}
-            <HomePage path="/home" />
-            <AllShoes exact path="/allShoes" />
-            <BuyPage exact path="/buy" />
-            <BuySelectShoe exact path="/buy/details" />
-            {/* <BuyShoeDetails exact path="/buy/details" /> */}
-            <SellPage exact path="/sell" />
-            <TradePage exact path="/trade" />
-            <MyShoes exact path="/myShoes" />
-            <PostDetails exact path="/details" />
+            <Route path="/home" component={HomePage}/>
+            <Route exact path="/allShoes" component={AllShoes}/>
+            <Route exact path="/buy" component={BuyPage}/>
+            <Route exact path="/buy/details" component={BuySelectShoe} />
+            <Route exact path="/sell" component={SellPage}/>
+
+            <Route exact path="/sell/details/:id" component={SellSelectShoe}/>
+            <Route exact path="/trade" component={TradePage}/>
+            <Route exact path="/myShoes" component={MyShoes}/>
+            <Route exact path="/details" component={PostDetails}/>
             <CreatePost exact path="/create" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
