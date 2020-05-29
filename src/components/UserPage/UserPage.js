@@ -5,6 +5,16 @@ import { Link } from 'react-router-dom';
 
 
 class UserPage extends Component {
+
+  componentDidMount(){
+    console.log('UserPage MOUTED', this.props.user);
+    this.props.dispatch({
+      type: 'fetch_account',
+      payload: this.props.user
+    })
+  };//end componentDidMount
+
+
   render() {
     return (
       <div>
