@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class BuyPage extends Component {
 
     componentDidMount() {
-        console.log('Buy Page MOUNTED',)
+        console.log('Buy Page MOUNTED')
         this.props.dispatch({
             type: 'fetch_buy'
         })
@@ -30,7 +30,7 @@ class BuyPage extends Component {
                 {this.props.reduxState.buyReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
-                            <BuyShoeDetails shoe={shoe} />
+                            <BuyShoeDetails shoe={shoe} history={this.props.history}/>
                         </div>
                     )
                 }//end map

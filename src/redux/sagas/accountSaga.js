@@ -11,7 +11,7 @@ function* getAccount(action){
     let user = action.payload;
     console.log('------> in getAccount saga', action.payload)
     try{
-        const response = yield axios.get(`/user/${userId}`)
+        const response = yield axios.get(`/user/${user}`)
         yield put({
             type: 'get_account',
             payload: response.data

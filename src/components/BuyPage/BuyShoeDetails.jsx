@@ -11,6 +11,7 @@ class BuyShoeDetails extends Component {
 
     handleClick = () => {
         console.log('Clicked on shoe image. Going to details page.');
+        // this.props.history.push(`/buy/details/${this.props.shoe.id}`)
         //store our data in a reducer
         this.props.dispatch({
             type: 'select_shoe',
@@ -32,5 +33,5 @@ class BuyShoeDetails extends Component {
 };//end class
 
 
-const putPropsOnState = reduxState => ({ reduxState })
+const putPropsOnState = reduxState => ({ reduxState });
 export default connect(putPropsOnState)(BuyShoeDetails);
