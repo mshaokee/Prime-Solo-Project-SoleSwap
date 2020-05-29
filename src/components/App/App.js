@@ -12,7 +12,6 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import HomePage from '../HomePage/HomePage';
-import AllShoes from '../AllShoes/AllShoes';
 import BuyPage from '../BuyPage/BuyPage';
 import SellPage from '../SellPage/SellPage';
 import TradePage from '../TradePage/TradePage';
@@ -21,6 +20,7 @@ import PostDetails from '../PostDetails/PostDetails';
 import CreatePost from '../CreatePost/CreatePost';
 import BuySelectShoe from '../BuyPage/BuySelectShoe';
 import SellSelectShoe from '../SellPage/SellSelectShoe';
+import HomeSelectShoe from '../HomePage/HomeSelectShoe';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -45,8 +45,9 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* display rest of pages without being protected. */}
-            <Route path="/home" component={HomePage}/>
-            <Route exact path="/allShoes" component={AllShoes}/>
+            {/* HOME SHOES */}
+            <Route exact path="/home" component={HomePage}/>
+            <Route exact path="/home/details/:id" component={HomeSelectShoe}/>
             {/* BUY SHOES */}
             <Route exact path="/buy" component={BuyPage}/>
             <Route exact path="/buy/details/:id" component={BuySelectShoe} />

@@ -2,9 +2,8 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
-import getShoesSaga from './getShoesSaga';
 import shoeBoxSaga from './shoeBoxSaga';
-import selectShoeSaga from './selectShoeSaga'
+import homeDetailsSaga from './homeDetailsSaga';
 import createSaga from './createSaga';
 import buyDetailsSaga from './buyDetailsSaga';
 import allShoesSaga from './allShoesSaga';
@@ -22,12 +21,11 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
-    getShoesSaga(),
     shoeBoxSaga(),
-    selectShoeSaga(),
     createSaga(),
     buyDetailsSaga(),
     allShoesSaga(),
     sellDetailsSaga(),
+    homeDetailsSaga(),
   ]);
 }
