@@ -8,7 +8,7 @@ function* sellDetailsSaga() {
 
 function* sellDetails(action) {
     try {
-        const response = yield axios.get(`/sell/detail/${action.payload}`)
+        const response = yield axios.get(`/details/sell/${action.payload}`)
         yield put({
             type: 'get_sell_detail',
             payload: response.data

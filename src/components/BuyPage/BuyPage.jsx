@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Box, Button } from '@material-ui/core';
-import BuyShoeDetails from './BuyShoeDetails';
 import { Link } from 'react-router-dom';
 
 class BuyPage extends Component {
@@ -9,38 +8,45 @@ class BuyPage extends Component {
     componentDidMount() {
         console.log('Buy Page MOUNTED')
         this.props.dispatch({
-            type: 'fetch_buy'
+            type: 'fetch_all'
         })
     }
+    handleClick = (shoe, event) => {
+        console.log('WHAT IS MY SHOE', shoe);
+        this.props.history.push(`/buy/details/${shoe.post_id}`)
+    };//end handleClick
 
     render() {
-        console.log('CHECKING STATE OF USER', this.props.reduxState.user);
-        
         return (
             <Box>
                 <h1>BuyPage</h1>
                 <br />
-                {/* only shows Create Post button if a user is logged in! */}
+                {/* BUTTON APPEARS IF USER */}
                 {this.props.user.id && (
                     <>
                         <Link to="/create"><Button variant="outlined">Create Post</Button></Link>
                     </>
                 )}
-
-                {this.props.reduxState.buyReducer.map((shoe, index) => {
+                {/* GET DATA FROM ALL SHOES AND SPECIFY */}
+                {this.props.reduxState.allShoesReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
-                            <BuyShoeDetails shoe={shoe} history={this.props.history}/>
+                            {shoe.post_cat === 1 &&
+                                <img
+                                    onClick={(event) => this.handleClick(shoe, event)}
+                                    src={shoe.post_image}
+                                    alt={shoe.post_name}
+                                    width="300px"
+                                />
+                            }
                         </div>
                     )
                 }//end map
                 )}
             </Box>
         )
-
     }
 };//end class
 
-// const mapStateToProps = state => ({ user: state.user });
 const putPropsOnState = reduxState => ({ reduxState, user: reduxState.user });
 export default connect(putPropsOnState)(BuyPage);

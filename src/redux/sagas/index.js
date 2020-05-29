@@ -6,8 +6,8 @@ import getShoesSaga from './getShoesSaga';
 import shoeBoxSaga from './shoeBoxSaga';
 import selectShoeSaga from './selectShoeSaga'
 import createSaga from './createSaga';
-import buyShoesSaga from './buyShoesSaga';
-import sellShoesSaga from './sellShoesSaga';
+import buyDetailsSaga from './buyDetailsSaga';
+import allShoesSaga from './allShoesSaga';
 import sellDetailsSaga from './sellDetailsSaga';
 
 // rootSaga is the primary saga.
@@ -26,8 +26,8 @@ export default function* rootSaga() {
     shoeBoxSaga(),
     selectShoeSaga(),
     createSaga(),
-    buyShoesSaga(),
-    sellShoesSaga(),
+    buyDetailsSaga(),
+    allShoesSaga(),
     sellDetailsSaga(),
   ]);
 }

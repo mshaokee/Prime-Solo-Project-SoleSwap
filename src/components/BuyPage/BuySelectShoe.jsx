@@ -5,36 +5,29 @@ import { Link } from 'react-router-dom';
 
 class BuySelectShoe extends Component {
 
-    state = {
-        postId: this.props.reduxState.selectShoeReducer.post_id,
-        postName: this.props.reduxState.selectShoeReducer.post_name,
-        image: this.props.reduxState.selectShoeReducer.post_image,
-        username: this.props.reduxState.selectShoeReducer.username,
-        date: this.props.reduxState.selectShoeReducer.post_date,
-        description: this.props.reduxState.selectShoeReducer.post_body
-    }
-
     componentDidMount() {
         console.log('BuySelectShoe MOUNTED');
+        this.props.dispatch({
+            type: 'fetch_buy_detail',
+            payload: this.props.match.params.id
+        })
     };
-
-    //selectShoeReducer should now hold these
-    /* id, post_body, post_date, post_image, post_name, username*/
 
     render() {
         return (
             <Box>
                 <h1>BuySelectShoe</h1>
-                <Link to="/buy"><Button variant="outlined">Back to Buy List</Button></Link>
-                <h2>{this.state.postName}</h2>
-                <img src={this.state.image} alt={this.state.postName} />
-                <h4>{this.state.description}</h4>
-                <h3>By {this.state.username}</h3>
-                <h4>Date Posted : {this.state.date}</h4>
+                {this.props.detail.map((shoe) =>
+                    <div key="shoe.post_id">
+                        <Link to="/buy"><Button variant="outlined">Back To List</Button></Link>
+                        <h1 key={shoe.post_id}>{shoe.post_name}</h1>
+                        <img src={shoe.post_image} alt={shoe.post_name} width="450px" />
+                    </div>
+                )}
             </Box>
         )
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState })
+const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.getBuyDetail })
 export default connect(putPropsOnState)(BuySelectShoe);

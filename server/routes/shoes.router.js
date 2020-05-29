@@ -18,6 +18,23 @@ router.get('/', (req, res) => {
     });//end pool query
 });//end get route for Main Page
 
+//GET route for all shoes
+router.get('/all', (req, res) => {
+    console.log('in /all GET')
+    let queryString =
+        `SELECT * FROM "post"
+    JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
+    ORDER BY "post_id" DESC;`
+
+    pool.query(queryString).then((result) => {
+        res.send(result.rows);
+    }).catch((err) => {
+        console.log('Error in /shoes/all GET:', err)
+        res.sendStatus(500);
+    });//end pool query
+});//end get router
+
 //GET route for Shoe Box Page
 router.get('/shoebox', (req, res) => {
     console.log('in /shoes/shoebox GET');

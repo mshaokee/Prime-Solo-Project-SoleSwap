@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
@@ -47,11 +47,13 @@ class App extends Component {
             {/* display rest of pages without being protected. */}
             <Route path="/home" component={HomePage}/>
             <Route exact path="/allShoes" component={AllShoes}/>
+            {/* BUY SHOES */}
             <Route exact path="/buy" component={BuyPage}/>
-            <Route exact path="/buy/details" component={BuySelectShoe} />
+            <Route exact path="/buy/details/:id" component={BuySelectShoe} />
+            {/* SELL SHOES */}
             <Route exact path="/sell" component={SellPage}/>
-
             <Route exact path="/sell/details/:id" component={SellSelectShoe}/>
+            {/* TRADE SHOES */}
             <Route exact path="/trade" component={TradePage}/>
             <Route exact path="/myShoes" component={MyShoes}/>
             <Route exact path="/details" component={PostDetails}/>

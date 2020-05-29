@@ -29,7 +29,7 @@ class Nav extends Component {
 
           <Link className="nav-link" to="/allShoes">All Shoes</Link>
           <Link className="nav-link" to="/buy">Buy</Link>
-          <span className="nav-link" onClick={()=>{this.props.history.push('/sell')}}>Sell</span>
+          <Link className="nav-link" to="/sell">Sell</Link>
         
           <Link className="nav-link" to="/trade">Trade</Link>
 
