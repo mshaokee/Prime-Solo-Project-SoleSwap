@@ -42,7 +42,7 @@ const Nav = (props) => (
     
       {props.user.id && (
         <>
-          <LogOutButton className="nav-link" />
+          <Link to="/home"><LogOutButton className="nav-link" /></Link>
         </>
       )}
       {/* Always show this link since the about page is not protected */}
