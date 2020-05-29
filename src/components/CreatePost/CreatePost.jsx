@@ -90,9 +90,10 @@ class CreatePost extends Component {
         return (
             <Box>
                 <h1>CreatePost</h1>
-                <Link to="/buy"><Button variant="outlined">Back to Buy</Button></Link>
-                <Link to="/sell"><Button variant="outlined">Back to Sell</Button></Link>
-                <Link to="/trade"><Button variant="outlined">Back to Trade</Button></Link >
+                <Link to="/allShoes"><Button variant="outlined">All Shoes Page</Button></Link>
+                <Link to="/buy"><Button variant="outlined">Buyers Page</Button></Link>
+                <Link to="/sell"><Button variant="outlined">Sellers Page</Button></Link>
+                <Link to="/trade"><Button variant="outlined">Traders Page</Button></Link >
                 <br />
                 <br />
                 <TextField onChange={(event) => this.title(event)} label="post title" variant="outlined" />
@@ -102,6 +103,7 @@ class CreatePost extends Component {
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
                     <Select
+                    variant="outlined"
                         open={this.state.open}
                         onClose={this.handleClose}
                         onOpen={this.handleOpen}
@@ -113,7 +115,7 @@ class CreatePost extends Component {
                     </Select>
                 </FormControl>
 
-                <Button variant="outlined" onClick={this.createPost}>Create</Button>
+                <Button variant="outlined" size="large" onClick={this.createPost}>Create</Button>
             </Box>
         )
     }
