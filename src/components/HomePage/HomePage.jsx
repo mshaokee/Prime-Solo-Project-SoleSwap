@@ -27,7 +27,7 @@ class HomePage extends Component {
         return (
             <Box>
                 <h1>Home Page</h1>
-                {/* {JSON.stringify(this.props.reduxState.getShoesReducer)} */}
+                <h1>Recent Posts</h1>
                 {this.props.reduxState.getShoesReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
