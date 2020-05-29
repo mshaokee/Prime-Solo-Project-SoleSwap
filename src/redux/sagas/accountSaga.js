@@ -20,3 +20,5 @@ function* getAccount(action){
         console.log('Error in getAccount saga:', err)
     };//end try
 };//end generator function
+
+export default accountSaga;

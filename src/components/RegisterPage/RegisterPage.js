@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    email: '',
+    location: ''
   };
 
   registerUser = (event) => {
@@ -16,10 +18,12 @@ class RegisterPage extends Component {
         payload: {
           username: this.state.username,
           password: this.state.password,
+          email: this.state.email,
+          location: this.state.location
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -41,7 +45,7 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h1>Create an Acount</h1>
           <div>
             <label htmlFor="username">
               Username:
@@ -64,12 +68,25 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
+          {/* input */}
+          <div>
+            <label htmlFor="email">
+              email:
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChangeFor('email')}
+              />
+            </label>
+          </div>
+
           <div>
             <input
               className="register"
               type="submit"
               name="submit"
-              value="Register"
+              value="Sign Up"
             />
           </div>
         </form>
@@ -77,7 +94,7 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
           >
             Login
           </button>
