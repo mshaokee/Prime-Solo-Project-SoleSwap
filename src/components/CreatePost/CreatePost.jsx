@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
+import {Link} from 'react-router-dom';
 import { Box, Button, TextField, InputLabel, FormControl, MenuItem, Select } from '@material-ui/core';
 
 const styles = theme => {
-    return({
+    return ({
         button: {
             display: 'block',
         },
@@ -85,22 +86,27 @@ class CreatePost extends Component {
 
     render() {
         console.log('Create Post MOUNTED 2', this.props.user);
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <Box>
                 <h1>CreatePost</h1>
+                <Link to="/buy"><Button variant="outlined">Back to Buy</Button></Link>
+                <Link to="/sell"><Button variant="outlined">Back to Sell</Button></Link>
+                <Link to="/trade"><Button variant="outlined">Back to Trade</Button></Link >
+                <br />
+                <br />
                 <TextField onChange={(event) => this.title(event)} label="post title" variant="outlined" />
-                <TextField onChange={(event)=>this.shoeDesc(event)} label="description of shoe" variant="outlined" />
+                <TextField onChange={(event) => this.shoeDesc(event)} label="description of shoe" variant="outlined" />
                 <TextField onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
                 {/* <Button onClick={this.handleOpen}>OPEN ME</Button> */}
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
                     <Select
-                    open={this.state.open} 
-                    onClose={this.handleClose} 
-                    onOpen={this.handleOpen} 
-                    value={this.state.topic} 
-                    onChange={(event)=>this.handleChange(event)}>
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        onOpen={this.handleOpen}
+                        value={this.state.topic}
+                        onChange={(event) => this.handleChange(event)}>
                         <MenuItem value={1}><em>Buy</em></MenuItem>
                         <MenuItem value={2}><em>Sell</em></MenuItem>
                         <MenuItem value={3}><em>Trade</em></MenuItem>
@@ -113,6 +119,6 @@ class CreatePost extends Component {
     }
 };//end class
 
-const reduxStateOnProps = state => ({user}) => ({user: state.user});
+const reduxStateOnProps = state => ({ user }) => ({ user: state.user });
 // const putPropsOnState = reduxState => ({reduxState})
 export default connect(reduxStateOnProps)(withStyles(styles)(CreatePost));

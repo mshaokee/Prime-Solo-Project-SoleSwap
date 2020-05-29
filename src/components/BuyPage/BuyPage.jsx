@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import BuyShoeDetails from './BuyShoeDetails';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ class BuyPage extends Component {
                 {/* only shows Create Post button if a user is logged in! */}
                 {this.props.user.id && (
                     <>
-                        <Link to="/create"><button>Create Post</button></Link>
+                        <Link to="/create"><Button variant="outlined">Create Post</Button></Link>
                     </>
                 )}
 
