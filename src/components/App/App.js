@@ -16,7 +16,6 @@ import BuyPage from '../BuyPage/BuyPage';
 import SellPage from '../SellPage/SellPage';
 import TradePage from '../TradePage/TradePage';
 import MyShoes from '../MyShoes/MyShoes';
-
 import CreatePost from '../CreatePost/CreatePost';
 import BuySelectShoe from '../BuyPage/BuySelectShoe';
 import SellSelectShoe from '../SellPage/SellSelectShoe';

@@ -13,10 +13,10 @@ const styles = theme => {
 class HomePage extends Component {
 
     componentDidMount() {
-        console.log('Home Page MOUNTED', this.props.reduxState.getShoesReducer);
+        console.log('Home Page MOUNTED', this.props.reduxState);
         //dispatch to redux GET
         this.props.dispatch({
-            type: 'fetch_all'
+            type: 'fetch_shoes'
         });//end dispatch
     };//end componentDidMount
 
@@ -30,7 +30,7 @@ class HomePage extends Component {
             <Box>
                 <h1>Home Page</h1>
                 <h1>Recent Posts</h1>
-                {this.props.reduxState.allShoesReducer.map((shoe, index) => {
+                {this.props.reduxState.homeReducer.map((shoe, index) => {
                     return (
                         <div key={index}>
                             {shoe.post_cat === 1 | 2 | 3 &&
