@@ -21,6 +21,7 @@ import BuySelectShoe from '../BuyPage/BuySelectShoe';
 import SellSelectShoe from '../SellPage/SellSelectShoe';
 import HomeSelectShoe from '../HomePage/HomeSelectShoe';
 import AllShoes from '../AllShoes/AllShoes';
+import TradeSelectShoe from '../TradePage/TradeSelectShoe';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -58,6 +59,8 @@ class App extends Component {
             <Route exact path="/sell/details/:id" component={SellSelectShoe}/>
             {/* TRADE SHOES */}
             <Route exact path="/trade" component={TradePage}/>
+            <Route exact path="/trade/details/:id" component={TradeSelectShoe} />
+
             <Route exact path="/myShoes" component={MyShoes}/>
             <Route exact path="/create" component={CreatePost}/>
             {/* Visiting localhost:3000/about will show the about page.
