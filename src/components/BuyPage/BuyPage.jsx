@@ -11,7 +11,7 @@ class BuyPage extends Component {
             type: 'fetch_all'
         })
     }
-    handleClick = (shoe, event) => {
+    handleClick = (shoe) => {
         console.log('WHAT IS MY SHOE', shoe);
         this.props.history.push(`/buy/details/${shoe.post_id}`)
     };//end handleClick
@@ -33,7 +33,7 @@ class BuyPage extends Component {
                         <div key={index}>
                             {shoe.post_cat === 1 &&
                                 <img
-                                    onClick={(event) => this.handleClick(shoe, event)}
+                                    onClick={(event) => this.handleClick(shoe)}
                                     src={shoe.post_image}
                                     alt={shoe.post_name}
                                     width="300px"

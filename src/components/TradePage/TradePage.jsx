@@ -13,7 +13,7 @@ class TradePage extends Component {
         })
     };//end componentDidMount
 
-    handleClick = (shoe, event) => {
+    handleClick = (shoe) => {
         //collect data from inside the map and set as shoe, call in handleclick to send to params.
         console.log('Selecting specific shoe for details from Trade Page.');
         this.props.history.push(`/trade/details/${shoe.post_id}`)
@@ -34,7 +34,7 @@ class TradePage extends Component {
                             {/* We are on the trade page, if the category is set to 3, or trade. Display data in category 3. */}
                             {shoe.post_cat === 3 &&
                                 <img
-                                    onClick={(event) => this.handleClick(shoe, event)}
+                                    onClick={(event) => this.handleClick(shoe)}
                                     src={shoe.post_image}
                                     alt={shoe.post_name}
                                     width="300px"

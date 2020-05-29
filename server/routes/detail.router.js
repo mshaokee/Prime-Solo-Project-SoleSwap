@@ -62,5 +62,20 @@ router.get('/trade/:id', (req, res) => {
     });//end pool query
 });//end get router
 
+//GET for all details
+router.get('/all/:id', (req, res) => {
+    let id = req.params.id;
+    console.log('in /details/all/:id GET');
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    JOIN "user" ON "post".user_id = "user".id
+    WHERE "post_id" = $1;`
+    pool.query(queryString, [id]).then((result) => {
+        res.send(result.rows);
+    }).catch((err) => {
+        console.log('Error in /all/trade :', err);
+        res.sendStatus(500);
+    });//end pool query
+});//end get router
+
 
 module.exports = router;
