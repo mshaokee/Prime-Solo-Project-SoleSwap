@@ -37,12 +37,8 @@ class Nav extends Component {
             {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
-            {this.props.user.id ? 'My Account' : 'Login / Sign up'}
+            {this.props.user.id ? 'My Shoes' : 'Login / Sign up'}
           </Link>
-          <Link className="nav-link" to="/myShoes">
-            {this.props.user.id ? 'My Shoes' : null}
-          </Link>
-
           {this.props.user.id && (
             <>
               <Link to="/home"><LogOutButton className="nav-link" /></Link>

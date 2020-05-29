@@ -15,7 +15,7 @@ function* tradeDetail(action){
         const response = yield axios.get(`/details/trade/${action.payload}`)
         //sending data to our reducer after back from server.
         yield put({
-            type: 'get_trade_details',
+            type: 'get_trade_detail',
             payload: response.data
         })
     }catch(err){
