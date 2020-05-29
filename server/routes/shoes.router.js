@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     console.log('in /shoes GET');
     // query string for Home page
     let queryString = `SELECT "post_id", "post_name", "post_image", "post_body", "post_date", "username" FROM "post" 
-                       JOIN "user" ON "post".user_id = "user".id ORDER BY "post_date" ASC LIMIT '6';`;
+                       JOIN "user" ON "post".user_id = "user".id ORDER BY "post_date" DESC LIMIT '6';`;
     pool.query(queryString).then(result => {
         console.log('back from GET:', result.rows);
         res.send(result.rows);
