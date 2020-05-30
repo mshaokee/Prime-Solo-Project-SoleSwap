@@ -3,14 +3,15 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import shoeBoxSaga from './shoeBoxSaga';
-import homeDetailsSaga from './homeDetailsSaga';
+
 import createSaga from './createSaga';
-import buyDetailsSaga from './buyDetailsSaga';
+
 import allShoesSaga from './allShoesSaga';
-import sellDetailsSaga from './sellDetailsSaga';
+
 import homeSaga from './homeSaga';
-import tradeDetailsSaga from './tradeDetailsSaga';
-import allDetailsSaga from './allDetailsSaga';
+
+//import details, holds multiple generators
+import detailsSaga from './detailsSaga';
 import accountSaga from './accountSaga';
 
 // rootSaga is the primary saga.
@@ -27,13 +28,9 @@ export default function* rootSaga() {
     userSaga(),
     shoeBoxSaga(),
     createSaga(),
-    buyDetailsSaga(),
     allShoesSaga(),
-    sellDetailsSaga(),
-    homeDetailsSaga(),
     homeSaga(),
-    tradeDetailsSaga(),
-    allDetailsSaga(),
+    detailsSaga(),
     accountSaga(),
   ]);
 }
