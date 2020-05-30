@@ -10,6 +10,7 @@ import getSellDetail from './getSellDetail';
 import homeReducer from './homeReducer';
 import getTradeDetail from './getTradeDetail'
 import getAllDetail from './getAllDetail';
+import accountsReducer from './accountsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   homeReducer,// limit 6 for home page
   getTradeDetail, //get trade details
   getAllDetail, //get all details
+  accountsReducer, //get account data
 });
 
 export default rootReducer;

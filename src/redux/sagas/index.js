@@ -11,6 +11,7 @@ import sellDetailsSaga from './sellDetailsSaga';
 import homeSaga from './homeSaga';
 import tradeDetailsSaga from './tradeDetailsSaga';
 import allDetailsSaga from './allDetailsSaga';
+import accountSaga from './accountSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     homeSaga(),
     tradeDetailsSaga(),
     allDetailsSaga(),
+    accountSaga(),
   ]);
 }

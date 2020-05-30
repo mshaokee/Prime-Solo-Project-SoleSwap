@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 //WILL USE MATERIAL UI AT LATER TIME
 const styles = theme => {
   return ({
+    YourStyle: 'red'
   });//end return
 };//end styles
 

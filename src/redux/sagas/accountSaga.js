@@ -8,10 +8,10 @@ function* accountSaga(){
 
 //generator function
 function* getAccount(action){
-    let user = action.payload;
+    let id = action.payload;
     console.log('------> in getAccount saga', action.payload)
     try{
-        const response = yield axios.get(`/user/${user}`)
+        const response = yield axios.get(`/accounts/${id}`)
         yield put({
             type: 'get_account',
             payload: response.data
