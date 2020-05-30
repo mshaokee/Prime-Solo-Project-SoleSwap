@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class UserPage extends Component {
 
   componentDidMount() {
-    console.log('UserPage MOUTED', this.props.reduxState.accountsReducer);
+    console.log('UserPage MOUTED', this.props.user);
     this.props.dispatch({
       type: 'fetch_account',
       payload: this.props.user.id
@@ -19,7 +19,7 @@ class UserPage extends Component {
     return (
       <div>
         <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
-        <h3>Been a member since: {this.props.account.user}</h3>
+        <h3>Been a member since: {this.props.user.user_date}</h3>
         {this.props.account.map((data, index) => {
           return (
             <div key={index}>
