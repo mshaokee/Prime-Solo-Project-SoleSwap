@@ -29,5 +29,5 @@ class BuySelectShoe extends Component {
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.getBuyDetail })
+const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.details })
 export default connect(putPropsOnState)(BuySelectShoe);

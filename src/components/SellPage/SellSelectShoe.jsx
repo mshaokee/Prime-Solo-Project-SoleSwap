@@ -31,5 +31,5 @@ class SellSelectShoe extends Component {
 
 
 
-const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.getSellDetail })
+const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.details })
 export default connect(putPropsOnState)(SellSelectShoe);

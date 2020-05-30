@@ -2,14 +2,10 @@ import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
-import getHomeDetail from './getHomeDetail';
 import shoeBoxReducer from './shoeBoxReducer';
-import getBuyDetail from './getBuyDetail';
 import allShoesReducer from './allShoesReducer';
-import getSellDetail from './getSellDetail';
 import homeReducer from './homeReducer';
-import getTradeDetail from './getTradeDetail'
-import getAllDetail from './getAllDetail';
+import details from './details';
 import accountsReducer from './accountsReducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -22,14 +18,10 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
-  getHomeDetail, // gets data for home page
   shoeBoxReducer, //gets data for shoe box page
-  getBuyDetail, //gets data specifically for buy page
   allShoesReducer, //all shoes reducer reducer
-  getSellDetail, //get sell details
   homeReducer,// limit 6 for home page
-  getTradeDetail, //get trade details
-  getAllDetail, //get all details
+  details, //get all details
   accountsReducer, //get account data
 });
 

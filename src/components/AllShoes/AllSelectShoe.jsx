@@ -29,5 +29,5 @@ class AllSelectShoe extends Component {
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.getAllDetail })
+const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.details })
 export default connect(putPropsOnState)(AllSelectShoe);

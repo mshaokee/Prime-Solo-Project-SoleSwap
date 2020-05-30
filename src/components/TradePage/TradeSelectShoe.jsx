@@ -31,6 +31,6 @@ class TradeSelectShoe extends Component {
 
 
 //connect redux to props.
-const putStateOnProps = reduxState => ({ reduxState, details: reduxState.getTradeDetail })
+const putStateOnProps = reduxState => ({ reduxState, details: reduxState.details })
 
 export default connect(putStateOnProps)(TradeSelectShoe);
