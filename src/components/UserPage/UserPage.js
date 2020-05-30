@@ -19,10 +19,13 @@ class UserPage extends Component {
     return (
       <div>
         <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
+        <h3>Been a member since: {this.props.account.user}</h3>
         {this.props.account.map((data, index) => {
           return (
             <div key={index}>
-              <img src={data.post_image} alt={data.post_name} width="550px" />
+              <img src={data.post_image} alt={data.post_name} width="400px" />
+              <h4>{data.cat_name}</h4>
+              <button>edit</button>  <button>delete</button>
             </div>
           )
         })}
