@@ -22,14 +22,15 @@ class UserPage extends Component {
   };//end handleClick
 
   render() {
-    let date = moment(this.props.user.user_date).format(`MMM Do YYYY`);
+    //format the date to month day, year
+    let date = moment(this.props.user.user_date).format(`MMM Do, YYYY`);
     return (
       <Box>
         <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
         <h3>Been a member since: {date}</h3>
 
         {this.props.account.map((shoe, index) => {
-          let postDate = moment(shoe.post_date).format('MMM Do YYYY');
+          let postDate = moment(shoe.post_date).format('MMM Do, YYYY');
           return (
             <Box key={index}>
               <h4>{shoe.post_name}</h4>
