@@ -81,9 +81,12 @@ router.get('/all/:id', (req, res) => {
 router.get('/account/:id', (req, res) => {
     let id = req.params.id;
     console.log('in /details/account/:id GET');
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
-    JOIN "user" ON "post".user_id = "user".id
-    WHERE "post_id" = $1;`
+    let queryString = `
+        SELECT * FROM "user"
+        JOIN "post" ON "user".id = "post".user_id
+        JOIN "category" ON "post".post_cat = "category".cat_id
+        WHERE "post_id" = $1;
+        `
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
     }).catch((err) => {

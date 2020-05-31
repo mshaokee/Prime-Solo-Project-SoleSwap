@@ -21,6 +21,7 @@ class UserPage extends Component {
 
 
   render() {
+    
     return (
       <Box>
         <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
@@ -28,6 +29,7 @@ class UserPage extends Component {
         {this.props.account.map((shoe, index) => {
           return (
             <div key={index}>
+              <h4>{shoe.post_name}</h4>
               <img
                 onClick={(event) => this.handleClick(shoe)}
                 src={shoe.post_image}
