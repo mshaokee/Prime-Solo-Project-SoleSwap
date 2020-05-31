@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
         JOIN "post" ON "user".id = "post".user_id
         JOIN "category" ON "post".post_cat = "category".cat_id
         WHERE "id" = $1
-        ORDER BY "post_id";
+        ORDER BY "post_id" DESC;
         `
     pool.query(queryString, [id]).then((result)=> {
         res.send(result.rows);

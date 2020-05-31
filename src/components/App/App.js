@@ -22,11 +22,10 @@ import HomeSelectShoe from '../HomePage/HomeSelectShoe';
 import AllShoes from '../AllShoes/AllShoes';
 import TradeSelectShoe from '../TradePage/TradeSelectShoe';
 import AllSelectShoe from '../AllShoes/AllSelectShoe';
-import UserSelectShoe from '../UserPage/UserSelectShoe';
 
+import UserEditShoe from '../UserPage/UserEditShoe';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import ShoeBox from '../ShoeBox/ShoeBox';
@@ -72,7 +71,7 @@ class App extends Component {
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <ProtectedRoute exact path="/account" component={UserPage}/>
-            <Route exact path="/account/details/:id" component={UserSelectShoe}/>
+            <Route exact path="/account/edit/:id" component={UserEditShoe}/>
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <Route exact path="/shoeBox" component={ShoeBox}/>

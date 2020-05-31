@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 const moment = require('moment');
 // import LogOutButton from '../LogOutButton/LogOutButton';
 // import { Link } from 'react-router-dom';
@@ -17,9 +17,10 @@ class UserPage extends Component {
     })
   };//end componentDidMount
 
-  handleClick = (shoe) => {
-    this.props.history.push(`/account/details/${shoe.post_id}`)
-  };//end handleClick
+  handleEdit = (shoe) => {
+    console.log('Take me to the Edit Page.');
+    this.props.history.push(`/account/edit/${shoe.post_id}`)
+  }//end handleEdit
 
   render() {
     //format the date to month day, year
@@ -35,12 +36,8 @@ class UserPage extends Component {
             <Box key={index}>
               <h4>{shoe.post_name}</h4>
               <h4>Date posted: {postDate}</h4>
-              <img
-                onClick={(event) => this.handleClick(shoe)}
-                src={shoe.post_image}
-                alt={shoe.post_name}
-                width="400px"
-              />
+              <img src={shoe.post_image} alt={shoe.post_name} width="400px"/>
+              <Button onClick={(event) => this.handleEdit(shoe)} variant="outlined">EDIT</Button>
             </Box>
           )
         })}

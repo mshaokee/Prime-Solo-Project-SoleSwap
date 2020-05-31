@@ -77,23 +77,5 @@ router.get('/all/:id', (req, res) => {
     });//end pool query
 });//end get router
 
-//GET for account
-router.get('/account/:id', (req, res) => {
-    let id = req.params.id;
-    console.log('in /details/account/:id GET');
-    let queryString = `
-        SELECT * FROM "user"
-        JOIN "post" ON "user".id = "post".user_id
-        JOIN "category" ON "post".post_cat = "category".cat_id
-        WHERE "post_id" = $1;
-        `
-    pool.query(queryString, [id]).then((result) => {
-        res.send(result.rows);
-    }).catch((err) => {
-        console.log('Error in /all/account :', err);
-        res.sendStatus(500);
-    });//end pool query
-});//end get router
-
 
 module.exports = router;

@@ -3,16 +3,12 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import shoeBoxSaga from './shoeBoxSaga';
-
 import createSaga from './createSaga';
-
 import allShoesSaga from './allShoesSaga';
-
 import homeSaga from './homeSaga';
-
-//import details, holds multiple generators
 import detailsSaga from './detailsSaga';
 import accountSaga from './accountSaga';
+import editShoesSaga from './editShoesSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -32,5 +28,6 @@ export default function* rootSaga() {
     homeSaga(),
     detailsSaga(),
     accountSaga(),
+    editShoesSaga(),
   ]);
 }

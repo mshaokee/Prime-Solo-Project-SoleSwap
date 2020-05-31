@@ -8,7 +8,6 @@ function* detailsSaga() {
     yield takeLatest('fetch_sell_detail', sellDetails);
     yield takeLatest('fetch_home_detail', homeDetails);
     yield takeLatest('fetch_trade_detail', tradeDetail);
-    yield takeLatest('fetch_account_shoe', accountDetail)
 };//end watcher
 
 //generator for all Details
@@ -81,19 +80,6 @@ function* tradeDetail(action) {
         console.log('Error in tradeDetail saga:', err)
     };//end try
 };//end tradeDetail
-
-//generator for account details
-function* accountDetail(action){
-    try {
-        const response = yield axios.get(`/details/account/${action.payload}`);
-        yield put({
-            type: 'get_account_shoe',
-            payload: response.data
-        })
-    }catch(err){
-        console.log('Error in accountDetail:', err)
-    }
-};//end accountDetail
 
 
 export default detailsSaga;
