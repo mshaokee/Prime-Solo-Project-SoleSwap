@@ -23,7 +23,7 @@ class UserEditShoe extends Component {
     state = {
         open: false,
         postId: this.props.editShoe.post_id,
-        topic: this.props.editShoe.post_cat,
+        topic: '',
         description: this.props.editShoe.post_body,
         updatedDate: moment().format(`MMM Do YYYY, h:mm a`),
         image: this.props.editShoe.post_image,

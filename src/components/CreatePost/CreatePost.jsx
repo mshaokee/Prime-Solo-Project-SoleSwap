@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Box, Button, TextField, InputLabel, FormControl, MenuItem, Select } from '@material-ui/core';
 
 const styles = theme => {
@@ -103,13 +103,12 @@ class CreatePost extends Component {
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
                     <Select
-                    variant="outlined"
+                        variant="outlined"
                         open={this.state.open}
                         onClose={this.handleClose}
                         onOpen={this.handleOpen}
                         value={this.state.topic}
                         onChange={(event) => this.handleChange(event)}>
-                        <MenuItem value={0}>{this.state.topic}</MenuItem>
                         <MenuItem value={1}><em>Buy</em></MenuItem>
                         <MenuItem value={2}><em>Sell</em></MenuItem>
                         <MenuItem value={3}><em>Trade</em></MenuItem>
