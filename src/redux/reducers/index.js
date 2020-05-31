@@ -7,6 +7,7 @@ import allShoesReducer from './allShoesReducer';
 import homeReducer from './homeReducer';
 import details from './details';
 import accountsReducer from './accountsReducer';
+import editShoeReducer from './editShoeReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   homeReducer,// limit 6 for home page
   details, //get all details
   accountsReducer, //get account data
+  editShoeReducer, //gets specific data for edit
 });
 
 export default rootReducer;

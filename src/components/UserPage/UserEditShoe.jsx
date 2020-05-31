@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Box, Button} from '@material-ui/core';
-import {Link} from 'react-router-dom';
+import { Box, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 class UserEditShoe extends Component {
 
     componentDidMount() {
+        console.log('UserEditShoe MOUNTED');
         this.props.dispatch({
-            type: 'fetch_account_shoe',
+            type: 'fetch_edit_shoe',
             payload: this.props.match.params.id
         })
     }
@@ -17,8 +18,7 @@ class UserEditShoe extends Component {
             <Box>
                 <h1>UserEditShoe</h1>
                 {/* MAP THROUGH THIS */}
-
-                {this.props.details.map((shoe, index) => {
+                {this.props.editShoe.map((shoe, index) => {
                     return (
                         <Box key={index}>
                             <Link to="/account"><Button variant="outlined">My Shoes</Button></Link>
@@ -34,5 +34,5 @@ class UserEditShoe extends Component {
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState, details: reduxState.details })
+const putPropsOnState = reduxState => ({ reduxState, editShoe: reduxState.editShoeReducer })
 export default connect(putPropsOnState)(UserEditShoe);
