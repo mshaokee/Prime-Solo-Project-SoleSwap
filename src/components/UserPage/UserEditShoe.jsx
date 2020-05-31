@@ -22,17 +22,16 @@ class UserEditShoe extends Component {
     //this.props.editShoe.----
     state = {
         open: false,
-        postId: this.props.editShoe.post_id,
+        postId: this.props.editShoe.map(shoe => { return (shoe.post_id) }),
         topic: '',
-        description: this.props.editShoe.post_body,
+        description: this.props.editShoe.map((shoe) => { return (shoe.post_body) }),
         updatedDate: moment().format(`MMM Do YYYY, h:mm a`),
-        image: this.props.editShoe.post_image,
-        title: this.props.editShoe.post_name
+        image: this.props.editShoe.map((shoe) => { return (shoe.post_image) }),
+        title: this.props.editShoe.map((shoe) => { return (shoe.post_name) })
     }
 
     componentDidMount() {
-        console.log('UserEditShoe MOUNTED', this.props.editShoe.map((shoe)=>{return(
-            shoe.post_image)}));
+        console.log('UserEditShoe MOUNTED', this.state);
         //send page id back, and get shoe data
         this.props.dispatch({
             type: 'fetch_edit_shoe',

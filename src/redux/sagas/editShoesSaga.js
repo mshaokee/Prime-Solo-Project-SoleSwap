@@ -19,10 +19,15 @@ function* getEditShoes(action) {
 }//end getEditShoes
 
 function* editShoe(action) {
-    console.log('------> in editShoe', action.payload);
-    
+    console.log('------> in editShoe', action.payload.description);
+    let id = action.payload.postId;
+    let title = action.payload.title;
+    let category = action.payload.topic;
+    let description = action.payload.description;
+    let image = action.payload.image;
+    let date = action.payload.updatedDate
     try {
-        yield axios.put(`/account/edit/update/`)
+        yield axios.put(`/account/edit/update/${id}`, {})
     } catch (err) {
         console.log('Error in editShoe:', err);
     }
