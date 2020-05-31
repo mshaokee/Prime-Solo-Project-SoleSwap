@@ -22,6 +22,7 @@ import HomeSelectShoe from '../HomePage/HomeSelectShoe';
 import AllShoes from '../AllShoes/AllShoes';
 import TradeSelectShoe from '../TradePage/TradeSelectShoe';
 import AllSelectShoe from '../AllShoes/AllSelectShoe';
+import UserSelectShoe from '../UserPage/UserSelectShoe';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -61,7 +62,7 @@ class App extends Component {
             {/* TRADE SHOES */}
             <Route exact path="/trade" component={TradePage}/>
             <Route exact path="/trade/details/:id" component={TradeSelectShoe} />
-            
+            {/* Create POST */}
             <Route exact path="/create" component={CreatePost}/>
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
@@ -71,6 +72,7 @@ class App extends Component {
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <ProtectedRoute exact path="/account" component={UserPage}/>
+            <Route exact path="/account/details/:id" component={UserSelectShoe}/>
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <Route exact path="/shoeBox" component={ShoeBox}/>

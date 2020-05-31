@@ -19,6 +19,10 @@ const details = (state = [], action) => {
     else if (action.type === 'get_home_detail') {
         return action.payload;
     }
+    //account shoe details
+    else if (action.type === 'get_account_shoe'){
+        return action.payload;
+    }
     return state;
 };//end details
 
