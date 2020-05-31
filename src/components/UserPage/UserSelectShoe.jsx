@@ -14,6 +14,7 @@ class UserSelectShoe extends Component {
     };//end componentDidMount
 
     render() {
+        
         return (
             <Box>
                 {/* MAP THROUGH THIS */}
