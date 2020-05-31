@@ -20,6 +20,8 @@ router.get('/:id', (req, res) => {
     });//end pool query
 });//end get router
 
+//PUT for shoe edit
+
 
 
 module.exports = router;

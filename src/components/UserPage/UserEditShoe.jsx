@@ -31,7 +31,8 @@ class UserEditShoe extends Component {
     }
 
     componentDidMount() {
-        console.log('UserEditShoe MOUNTED');
+        console.log('UserEditShoe MOUNTED', this.props.editShoe.map((shoe)=>{return(
+            shoe.post_image)}));
         //send page id back, and get shoe data
         this.props.dispatch({
             type: 'fetch_edit_shoe',
@@ -59,6 +60,35 @@ class UserEditShoe extends Component {
         })
     };//end handleChange
 
+    //manages title change
+    handleTitle = (event) => {
+        this.setState({
+            title: event.target.value
+        })
+    };//end handleTitle
+
+    //manages description change
+    handleDesc = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    };//end handleDesc
+
+    //manages submitting information with PUT
+    handleSubmit = () => {
+        console.log('UPDATING data');
+        //send our new data to our saga to send to database
+        this.props.dispatch({
+            type: 'edit_shoe',
+            payload: this.state
+        })
+        // //redisplay DOM
+        // this.props.dispatch({
+        //     type: 'fetch_edit_shoe'
+        // })
+    };//end handelSubmit
+
+
     render() {
         const { classes } = this.props;
         return (
@@ -70,8 +100,8 @@ class UserEditShoe extends Component {
                 {this.props.editShoe.map((shoe, index) => {
                     return (
                         <Box key={index}>
-                            <h2>Title: <TextField defaultValue={shoe.post_name} /></h2>
-                            <h2>Description: <TextField defaultValue={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
+                            <h2>Title: <TextField onChange={(event) => this.handleTitle(event)}defaultValue={shoe.post_name} /></h2>
+                            <h2>Description: <TextField onChange={(event) => this.handleDesc(event)} defaultValue={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
                             {/* SELECTOR OPTION FROM MUI */}
                             <FormControl className={classes.formControl}>
                                 <Typography variant="h4">Current Topic: {shoe.cat_name}</Typography>
@@ -89,7 +119,7 @@ class UserEditShoe extends Component {
                             </FormControl>
                             <br />
                             <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
-                            <Button variant="outlined">Submit Changes</Button>
+                            <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
                             <Button variant="outlined">DELETE</Button>
                         </Box>
                     )
