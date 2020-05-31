@@ -109,6 +109,7 @@ class CreatePost extends Component {
                         onOpen={this.handleOpen}
                         value={this.state.topic}
                         onChange={(event) => this.handleChange(event)}>
+                        <MenuItem value={0}>{this.state.topic}</MenuItem>
                         <MenuItem value={1}><em>Buy</em></MenuItem>
                         <MenuItem value={2}><em>Sell</em></MenuItem>
                         <MenuItem value={3}><em>Trade</em></MenuItem>

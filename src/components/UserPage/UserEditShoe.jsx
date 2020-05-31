@@ -82,13 +82,12 @@ class UserEditShoe extends Component {
                                     onOpen={this.handleOpen}
                                     value={this.state.topic}
                                     onChange={(event) => this.handleChange(event)}>
-                                    <MenuItem value={`1`}><em>Buy</em></MenuItem>
-                                    <MenuItem value={`2`}><em>Sell</em></MenuItem>
-                                    <MenuItem value={`3`}><em>Trade</em></MenuItem>
+                                    <MenuItem value={1}><em>Buy</em></MenuItem>
+                                    <MenuItem value={2}><em>Sell</em></MenuItem>
+                                    <MenuItem value={3}><em>Trade</em></MenuItem>
                                 </Select>
                             </FormControl>
                             <br />
-
                             <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
                             <Button variant="outlined">Submit Changes</Button>
                             <Button variant="outlined">DELETE</Button>
