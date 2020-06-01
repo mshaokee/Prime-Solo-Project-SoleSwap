@@ -24,7 +24,7 @@ class Nav extends Component {
         <div className="nav-right">
           {/* Show the link to the info page and the logout button if the user is logged in */}
           <Link className="nav-link" to="/home">Home</Link>
-          <Link className="nav-link" to="/shoeBox">Shoe Box</Link>
+          {/* <Link className="nav-link" to="/shoeBox">Shoe Box</Link> !!THIS WILL BE A STRETCH - RATHER DO LIKES */}
           {/* ESSENTIALLY DROPDOWN MENU */}
           {/* <Link className="nav-link">View Shoes</Link> */}
 

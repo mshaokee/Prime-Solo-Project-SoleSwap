@@ -37,6 +37,19 @@ router.put('/update/:id', (req, res) => {
     });//end pool query
 });//end put router
 
+//DELETE for shoe edit
+router.delete('/delete/:id', (req, res) => {
+    console.log('Back from DELETE /account/edit/delete/:id', req.params.id);
+    let id = req.params.id;
+    let queryString = `DELETE FROM "post" WHERE post_id = $1`
+    pool.query(queryString, [id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('Error deleting from router:', err);
+        res.sendStatus(500);
+    });//end pool query
+});//end delete router
+
 
 
 module.exports = router;

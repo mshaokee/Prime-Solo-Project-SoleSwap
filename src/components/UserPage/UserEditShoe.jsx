@@ -92,6 +92,15 @@ class UserEditShoe extends Component {
         this.props.history.push(`/account`);
     };//end handelSubmit
 
+    handleDelete = () => {
+        this.props.dispatch({
+            type: 'delete',
+            payload: this.props.match.params.id
+        })
+        //takes you back to your shoes
+        this.props.history.push(`/account`);
+    };//end handleDelete
+
 
     render() {
         const { classes } = this.props;
@@ -126,10 +135,8 @@ class UserEditShoe extends Component {
                             <br />
                             <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
                             <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
-                            <Button variant="outlined">DELETE</Button>
+                            <Button onClick={this.handleDelete}variant="outlined">DELETE</Button>
                         </Box>
-                    {/* ) */}
-                {/* })} */}
             </Box>
         )
     }
