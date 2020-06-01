@@ -23,7 +23,12 @@ router.get('/:id', (req, res) => {
 //PUT for shoe edit
 router.put('/update/:id', (req, res) => {
     console.log('Back from PUT /account/edit/update/:id', req.body, req.params.id);
-    
+    let postName = req.body.postName;
+    let postCat = req.body.postCat;
+    let category = req.body.category;
+    let description = req.body.description;
+    let date = req.body.date
+    // let queryString = ``
 });//end put router
 
 

@@ -22,21 +22,18 @@ class UserEditShoe extends Component {
     //this.props.editShoe.----
     state = {
         open: false,
-        postId: this.props.editShoe.map(shoe => { return (shoe.post_id) }),
-        topic: '',
-        description: this.props.editShoe.map((shoe) => { return (shoe.post_body) }),
-        updatedDate: moment().format(`MMM Do YYYY, h:mm a`),
-        image: this.props.editShoe.map((shoe) => { return (shoe.post_image) }),
-        title: this.props.editShoe.map((shoe) => { return (shoe.post_name) })
     }
 
     componentDidMount() {
-        console.log('UserEditShoe MOUNTED', this.state);
-        //send page id back, and get shoe data
+        console.log('UserEditShoe MOUNTED');
         this.props.dispatch({
             type: 'fetch_edit_shoe',
             payload: this.props.match.params.id
         })
+        // this.props.dispatch({
+        //     type: 'edit_this_shoe',
+        //     payload: this.state
+        // })
     }//end componentDidMount
 
     //manage close and open options for topic selector
@@ -54,23 +51,26 @@ class UserEditShoe extends Component {
     //manages your new topic as needed.
     handleChange = (event) => {
         console.log('You have set the new topic', event.target.value);
-        this.setState({
-            topic: event.target.value
+        this.props.dispatch({
+            type: 'change_category',
+            payload: event.target.value
         })
     };//end handleChange
 
     //manages title change
     handleTitle = (event) => {
-        this.setState({
-            title: event.target.value
+        this.props.dispatch({
+            type: 'change_title',
+            payload: event.target.value
         })
     };//end handleTitle
 
     //manages description change
     handleDesc = (event) => {
-        this.setState({
-            description: event.target.value
-        })
+      this.props.dispatch({
+          type: 'change_description',
+          payload: event.target.value
+      })
     };//end handleDesc
 
     //manages submitting information with PUT
@@ -79,7 +79,10 @@ class UserEditShoe extends Component {
         //send our new data to our saga to send to database
         this.props.dispatch({
             type: 'edit_shoe',
-            payload: this.state
+            payload: {
+                shoe: this.props.editShoe,
+                updatedDate: moment().format(`MMM Do YYYY, h:mm a`)
+            }
         })
         // //redisplay DOM
         // this.props.dispatch({
@@ -90,17 +93,20 @@ class UserEditShoe extends Component {
 
     render() {
         const { classes } = this.props;
+        let shoe = this.props.editShoe;
+        console.log('HELLLOOOOOOOOOOOOOO', shoe)
         return (
             <Box>
+
                 <Link to="/account"><Button variant="outlined">My Shoes</Button></Link>
                 <br />
                 <h1>Edit Your Shoe Info</h1>
                 {/* MAP THROUGH THIS */}
-                {this.props.editShoe.map((shoe, index) => {
-                    return (
-                        <Box key={index}>
-                            <h2>Title: <TextField onChange={(event) => this.handleTitle(event)}defaultValue={shoe.post_name} /></h2>
-                            <h2>Description: <TextField onChange={(event) => this.handleDesc(event)} defaultValue={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
+                {/* {this.props.editShoe.map((shoe, index) => {
+                    return ( */}
+                        <Box>
+                            <h2>Title: <TextField onChange={(event) => this.handleTitle(event)} value={shoe.post_name} /></h2>
+                            <h2>Description: <TextField onChange={(event) => this.handleDesc(event)} value={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
                             {/* SELECTOR OPTION FROM MUI */}
                             <FormControl className={classes.formControl}>
                                 <Typography variant="h4">Current Topic: {shoe.cat_name}</Typography>
@@ -109,7 +115,7 @@ class UserEditShoe extends Component {
                                     open={this.state.open}
                                     onClose={this.handleClose}
                                     onOpen={this.handleOpen}
-                                    value={this.state.topic}
+                                    value={''}
                                     onChange={(event) => this.handleChange(event)}>
                                     <MenuItem value={1}><em>Buy</em></MenuItem>
                                     <MenuItem value={2}><em>Sell</em></MenuItem>
@@ -121,12 +127,12 @@ class UserEditShoe extends Component {
                             <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
                             <Button variant="outlined">DELETE</Button>
                         </Box>
-                    )
-                })}
+                    {/* ) */}
+                {/* })} */}
             </Box>
         )
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState, editShoe: reduxState.editShoeReducer })
+const putPropsOnState = reduxState => ({ reduxState, editShoe: reduxState.editShoeReducer, theShoe: reduxState.shoeToEdit })
 export default connect(putPropsOnState)(withStyles(styles)(UserEditShoe));

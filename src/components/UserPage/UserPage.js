@@ -19,7 +19,11 @@ class UserPage extends Component {
 
   handleEdit = (shoe) => {
     console.log('Take me to the Edit Page.');
-    this.props.history.push(`/account/edit/${shoe.post_id}`)
+    this.props.history.push(`/account/edit/${shoe.post_id}`);
+    // this.props.dispatch({
+    //   type: 'fetch_edit_shoe',
+    //   payload: shoe.post_id
+    // })
   }//end handleEdit
 
   render() {
@@ -36,7 +40,7 @@ class UserPage extends Component {
             <Box key={index}>
               <h4>{shoe.post_name}</h4>
               <h4>Date posted: {postDate}</h4>
-              <img src={shoe.post_image} alt={shoe.post_name} width="400px"/>
+              <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
               <Button onClick={(event) => this.handleEdit(shoe)} variant="outlined">EDIT</Button>
             </Box>
           )
