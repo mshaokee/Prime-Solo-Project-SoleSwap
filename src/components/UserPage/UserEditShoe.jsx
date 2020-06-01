@@ -98,7 +98,7 @@ class UserEditShoe extends Component {
             payload: this.props.match.params.id
         })
         //takes you back to your shoes
-        this.props.history.push(`/account`);
+        // this.props.history.push(`/account`);
     };//end handleDelete
 
 
@@ -135,7 +135,7 @@ class UserEditShoe extends Component {
                             <br />
                             <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
                             <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
-                            <Button onClick={this.handleDelete}variant="outlined">DELETE</Button>
+                           <Link to="/account"><Button onClick={this.handleDelete}variant="outlined">DELETE</Button></Link>
                         </Box>
             </Box>
         )

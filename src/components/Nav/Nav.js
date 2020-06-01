@@ -2,59 +2,96 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
+//MUI imports
+import { Box, Button } from '@material-ui/core';
 //import withStyles to work with class components to style
 import { withStyles } from '@material-ui/core/styles';
 
-//WILL USE MATERIAL UI AT LATER TIME
+//styles for material ui
 const styles = theme => {
   return ({
-    YourStyle: 'red'
+    navTitle: {
+      width: '30%',
+      float: 'left',
+      lineHeight: '50px',
+      letterSpacing: '3px'
+    },
+    nav: {
+      overflow: 'hidden',
+      backgroundColor: 'black',
+      position: 'fixed',
+      Top: '0',
+      zIndex: '12',
+      width: '100%',
+      margin: '0 auto',
+      // display: 'inline-block'
+    },
+    navLink: {
+      display: 'inline-block',
+      float: 'left',
+      fontSize: '20px',
+      margin: '0px 10px',
+      backgroundColor: 'red',
+      color: 'white',
+      marginTop: '25px'
+      // hover option
+      // '&:hover': {
+      //   backgroundColor: 'blue',
+    },
+    navRight: {
+      float: 'right',
+      fontSize: '20px',
+      margin: '0px 10px',
+      backgroundColor: 'blue',
+      color: 'white'
+    }
   });//end return
 };//end styles
 
 class Nav extends Component {
 
   render() {
+    const { classes } = this.props;
     return (
-      <div className="nav">
-        <Link to="/home">
-          <h2 className="nav-title">SoleSwap</h2>
-        </Link>
-        <div className="nav-right">
+      <Box className={classes.nav}>
+        {/* link our title / icon to the home page on click */}
+        <Link to="/home"><h1 className={classes.navTitle}>SoleSwap</h1></Link>
+        <nav className={classes.navRight}>
           {/* Show the link to the info page and the logout button if the user is logged in */}
-          <Link className="nav-link" to="/home">Home</Link>
-          {/* <Link className="nav-link" to="/shoeBox">Shoe Box</Link> !!THIS WILL BE A STRETCH - RATHER DO LIKES */}
+          <Link to="/home"><Button className={classes.navLink}>Home</Button></Link>
+          {/* <Link className="navLink" to="/shoeBox">Shoe Box</Link> !!THIS WILL BE A STRETCH - RATHER DO LIKES */}
           {/* ESSENTIALLY DROPDOWN MENU */}
-          {/* <Link className="nav-link">View Shoes</Link> */}
-
-          <Link className="nav-link" to="/allShoes">All Shoes</Link>
-          <Link className="nav-link" to="/buy">Buy</Link>
-          <Link className="nav-link" to="/sell">Sell</Link>
-        
-          <Link className="nav-link" to="/trade">Trade</Link>
-
-          <Link className="nav-link" to="/account">
+          {/* When viewing shoes set it into a drop down menu */}
+          <Link to="/allShoes"><Button className={classes.navLink}>All Shoes</Button></Link>
+          <Link to="/buy"><Button className={classes.navLink}>Buy</Button></Link>
+          <Link to="/sell"><Button className={classes.navLink}>Sell</Button></Link>
+          <Link to="/trade"><Button className={classes.navLink}>Trade</Button></Link>
+          <Link className={classes.navLink} to="/account">
             {/* Show this link if they are logged in or not,
-        but call this link 'Home' if they are logged in,
-        and call this link 'Login / Register' if they are not */}
-            {this.props.user.id ? 'My Shoes' : 'Login / Sign up'}
+             but call this link 'Home' if they are logged in,
+            and call this link 'Login / Register' if they are not */}
+            {this.props.user.id ?
+             <Button className={classes.navLink}>My Shoes</Button>
+             :
+              <Button className={classes.navLink}>Login</Button>}
           </Link>
+          {/* If the user is logged in, show the Logout option */}
           {this.props.user.id && (
             <>
-              <Link to="/home"><LogOutButton className="nav-link" /></Link>
+              <Link to="/home"><LogOutButton className={classes.navLink} /></Link>
             </>
           )}
           {/* Always show this link since the about page is not protected */}
-          {/* <Link className="nav-link" to="/about">
+          {/* <Link className="navLink" to="/about">
         About
       </Link> */}
-        </div>
-      </div>
+        </nav>
+      </Box>
     )
   }
 };
 
+//connect redux to props can target "user" to target user reducer
 const putPropsOnState = reduxState => ({ reduxState, user: reduxState.user })
-
+//wrap withStyles to allow MUI styling
 export default connect(putPropsOnState)(withStyles(styles)(Nav));

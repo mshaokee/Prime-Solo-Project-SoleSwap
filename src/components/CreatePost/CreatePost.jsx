@@ -82,6 +82,7 @@ class CreatePost extends Component {
                 title: this.state.title
             }
         })
+        // this.props.history.push('/account')
     };//end create post
 
     render() {
@@ -115,7 +116,7 @@ class CreatePost extends Component {
                     </Select>
                 </FormControl>
 
-                <Button variant="outlined" size="large" onClick={this.createPost}>Create</Button>
+                <Link to="/account"><Button variant="outlined" size="large" onClick={this.createPost}>Create</Button></Link>
             </Box>
         )
     }
