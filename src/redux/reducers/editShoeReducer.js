@@ -10,7 +10,7 @@ const editShoeReducer = (state = {}, action)=> {
     //changing our category
     if (action.type === 'change_category'){
         return {...state, post_cat: action.payload};
-    } //, cat_id: action.payload -- this is for changing category manually
+    }
     //changing our description
     if (action.type === 'change_description') {
         return { ...state, post_body: action.payload };

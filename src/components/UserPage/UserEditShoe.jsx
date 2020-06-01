@@ -85,24 +85,20 @@ class UserEditShoe extends Component {
             type: 'edit_shoe',
             payload: {
                 shoe: this.props.editShoe,
-                updatedDate: moment().format(`MMM Do YYYY, h:mm a`)
+                updatedDate: moment().format()
             }
         })
-        // //redisplay DOM
-        // this.props.dispatch({
-        //     type: 'fetch_edit_shoe'
-        // })
+        //takes you back to your shoes
+        this.props.history.push(`/account`);
     };//end handelSubmit
 
 
     render() {
         const { classes } = this.props;
         let shoe = this.props.editShoe;
-        // console.log('YOOO WHAT TIME IS ITT!!!!!!!!!!!', moment())
-        console.log('HELLLOOOOOOOOOOOOOO', shoe)
+        console.log('HELLLOOOOOOOOOOOOOO', shoe.post_date)
         return (
             <Box>
-
                 <Link to="/account"><Button variant="outlined">My Shoes</Button></Link>
                 <br />
                 <h1>Edit Your Shoe Info</h1>
