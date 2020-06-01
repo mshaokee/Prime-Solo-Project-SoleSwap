@@ -22,6 +22,7 @@ class UserEditShoe extends Component {
     //this.props.editShoe.----
     state = {
         open: false,
+        topic: ''
     }
 
     componentDidMount() {
@@ -51,6 +52,9 @@ class UserEditShoe extends Component {
     //manages your new topic as needed.
     handleChange = (event) => {
         console.log('You have set the new topic', event.target.value);
+        this.setState({
+            topic: event.target.value
+        })
         this.props.dispatch({
             type: 'change_category',
             payload: event.target.value
@@ -94,6 +98,7 @@ class UserEditShoe extends Component {
     render() {
         const { classes } = this.props;
         let shoe = this.props.editShoe;
+        // console.log('YOOO WHAT TIME IS ITT!!!!!!!!!!!', moment())
         console.log('HELLLOOOOOOOOOOOOOO', shoe)
         return (
             <Box>
@@ -115,7 +120,7 @@ class UserEditShoe extends Component {
                                     open={this.state.open}
                                     onClose={this.handleClose}
                                     onOpen={this.handleOpen}
-                                    value={''}
+                                    value={this.state.topic}
                                     onChange={(event) => this.handleChange(event)}>
                                     <MenuItem value={1}><em>Buy</em></MenuItem>
                                     <MenuItem value={2}><em>Sell</em></MenuItem>
