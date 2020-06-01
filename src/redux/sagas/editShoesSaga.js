@@ -27,7 +27,7 @@ function* editShoe(action) {
     let image = action.payload.image;
     let date = action.payload.updatedDate
     try {
-        yield axios.put(`/account/edit/update/${id}`, {})
+        yield axios.put(`/account/edit/update/${id}`, {id, title, category, description, image, date})
     } catch (err) {
         console.log('Error in editShoe:', err);
     }
