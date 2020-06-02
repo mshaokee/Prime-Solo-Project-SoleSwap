@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import for MUI
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Box, Container, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions, Button } from '@material-ui/core'; //Typography, Button, Link, Grid,
+import { Grid, Box, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions, Button } from '@material-ui/core'; //Typography, Button, Link, Grid,
 
 
 //styles to call MUI
@@ -12,6 +12,7 @@ const styles = () => {
             margin: '0px',
             overflow: 'hidden',
             width: '100%',
+            height: '100%'
         },
         title: {
             display: 'inline-block',
@@ -27,11 +28,11 @@ const styles = () => {
         media: {
             height: '275px',
             maxWidth: '400px',
-            position: 'center'
-            // paddingLeft: '50px'
+            position: 'center',
+            width: '100%'
         },
         button: {
-            width: '400px',
+            width: '450px',
             letterSpacing: '5px',
             paddingTop: '0px'
         },
@@ -42,8 +43,8 @@ const styles = () => {
             // display: 'flex'
         },
         grid: {
-            marginRight: '20px',
-            marginLeft: '20px',
+            marginRight: '50px',
+            marginLeft: '50px',
         },
     })
 };//end styles
@@ -74,7 +75,7 @@ class HomePage extends Component {
                 <Grid container className={classes.grid} direction="row" spacing={4}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
-                            <Grid container key={index} item xs s md={4} l={8}>
+                            <Grid container key={index} item xs s md={4} l={4}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>

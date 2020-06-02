@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import {Link} from 'react-router-dom';
+//import MUI
+import {Button, Box} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles';
+
+const styles = () => {
+  return({
+    box: {
+      display: 'inline-block',
+      fontSize: '50px',
+      height: '50px',
+      marginTop: '120px',
+      marginBottom: '15px',
+      borderBottom: '2px solid black',
+      width: '100%',
+    }
+  })
+};//end styles
 
 class LoginPage extends Component {
   state = {
@@ -31,19 +47,18 @@ class LoginPage extends Component {
   }
 
   render() {
+    //allows us to use MUI on props
+    const {classes} = this.props;
     return (
-      <div>
+      <Box>
         {this.props.errors.loginMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
+          <h2 className="alert" role="alert">
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
+        <form className={classes.box} onSubmit={this.login}>
           <h1>Login</h1>
-          <div>
+          <Box>
             <label htmlFor="username">
               Username:
               <input
@@ -53,8 +68,8 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <label htmlFor="password">
               Password:
               <input
@@ -64,8 +79,8 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
-          </div>
-          <div>
+          </Box>
+          <Box>
             {/* <Link to="/home"> */}
               <input
               className="log-in"
@@ -74,7 +89,7 @@ class LoginPage extends Component {
               value="Log In"
             />
             {/* </Link> */}
-          </div>
+          </Box>
         </form>
         <center>
           <button
@@ -85,7 +100,7 @@ class LoginPage extends Component {
             Sign Up
           </button>
         </center>
-      </div>
+      </Box>
     );
   }
 }
@@ -97,4 +112,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(LoginPage);
+export default connect(mapStateToProps)(withStyles(styles)(LoginPage));
