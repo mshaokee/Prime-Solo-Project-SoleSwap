@@ -6,12 +6,12 @@ import { Grid, Box, Container, Typography, Card, CardMedia, CardContent, CardAct
 
 
 //styles to call MUI
-const styles = theme => {
+const styles = () => {
     return ({
         page: {
-            marginTop: '0px',
+            margin: '0px',
             overflow: 'hidden',
-            width: '100%'
+            width: '100%',
         },
         title: {
             display: 'inline-block',
@@ -20,7 +20,9 @@ const styles = theme => {
             marginTop: '120px',
             marginBottom: '15px',
             borderBottom: '2px solid black',
-            width: '100%'
+            width: '100%',
+            marginRight: '20px',
+            marginLeft: '20px',
         },
         media: {
             height: '275px',
@@ -35,7 +37,13 @@ const styles = theme => {
         },
         card: {
             boxShadow: '0px 0px 2px #28283e',
-            maxWidth: '440px'
+            maxWidth: '440px',
+            // justifyContent: 'flex-end',
+            // display: 'flex'
+        },
+        grid: {
+            marginRight: '20px',
+            marginLeft: '20px',
         },
     })
 };//end styles
@@ -60,32 +68,32 @@ class HomePage extends Component {
         //allows us to use withStyles in render
         const { classes } = this.props;
         return (
-            <Container maxWidth="m" className={classes.page} >
+            <Box className={classes.page}>
                 <Typography variant="h3" className={classes.title}>Recent Posts</Typography>
                 {/* BEGIN GRID */}
-                <Grid direction="row" justify="center" alignItems="center">
+                <Grid container className={classes.grid} direction="row" spacing={4}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
-                            <Box key={index}>
+                            <Grid container key={index} item xs s md={4} l={8}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>
                                         <CardActionArea>
                                             <CardContent>
                                                 <Typography variant="h6">{shoe.post_name}</Typography>
-                                                <CardMedia className={classes.media} onClick={(event) => this.handleClick(shoe, event)} image={shoe.post_image} title={shoe.post_name} />
+                                                <CardMedia className={classes.media} onClick={(event) => this.handleClick(shoe)} image={shoe.post_image} title={shoe.post_name} />
                                             </CardContent>
                                             <CardActions>
-                                                <Button className={classes.button}>DETAILS</Button>
+                                                <Button onClick={(event) => this.handleClick(shoe)} className={classes.button}>DETAILS</Button>
                                             </CardActions>
                                         </CardActionArea>
                                     </Card>
                                 }  {/* END TERNARY */}
-                            </Box>
+                            </Grid>
                         )//end return
                     })} {/* END MAP */}
                 </Grid>
-            </Container>
+            </Box>
         )//end return
     }//end render
 };//end class
