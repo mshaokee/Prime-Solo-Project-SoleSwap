@@ -5,14 +5,15 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = () => {
   return ({
     footer: {
-      marginTop: '100px',
+      // marginTop: '100px',
       padding: '20px 0px 20px 20px',
       backgroundColor: 'black',
       color: 'white',
       boxShadow: '0px 0px 2px #28283e',
       width: '100%',
-      marginTop: 'calc(5% + 60px)',
+      position: 'fixed',
       bottom: '0',
+      height: '28px'
     }
 
   })
