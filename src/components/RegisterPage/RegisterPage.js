@@ -31,12 +31,12 @@ const styles = () => {
     },
     input1: {
       display: 'flex',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      paddingTop: '15px',
     },
     text1: {
       width: '200px',
       height: '70px',
-
     },
   })
 };//end styles
@@ -74,72 +74,46 @@ class RegisterPage extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
-        <form onSubmit={this.registerUser}>
-          <h1>Create an Acount</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          {/* input */}
-          <div>
-            <label htmlFor="email">
-              email:
-              <input
-                type="text"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleInputChangeFor('email')}
-              />
-            </label>
-          </div>
-
-          <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Sign Up"
-            />
-          </div>
+      <Box>
+        <form className={classes.box} onSubmit={this.registerUser}>
+          <Typography variant="h2" className={classes.title}>Create an Account</Typography>
+          {this.props.errors.registrationMessage && (
+            <Alert severity="error" className={classes.alert} className="alert" role="alert" >
+              {this.props.errors.registrationMessage}
+            </Alert>
+          )}
+          <Box className={classes.inputs}>
+            {/* username input */}
+            <Box className={classes.input1}>
+              <label htmlFor="username">
+                <TextField className={classes.text1} size="medium" label="Username" type="text" name="username" value={this.state.username} onChange={this.handleInputChangeFor('username')} />
+              </label>
+            </Box>
+            {/* password input */}
+            <Box className={classes.input1}>
+              <label htmlFor="password">
+                <TextField className={classes.text1} size="medium" label="Password" type="password" name="password" value={this.state.password} onChange={this.handleInputChangeFor('password')} />
+              </label>
+            </Box>
+            {/* email input */}
+            <Box className={classes.input1}>
+              <label htmlFor="email">
+                <TextField className={classes.text1} size="medium" label="Email" type="text" name="email" value={this.state.email} onChange={this.handleInputChangeFor('email')} />
+              </label>
+            </Box>
+            {/* sign up button */}
+            <Button variant="outlined" type="submit" name="submit" value="Sign Up">Sign Up</Button>
+          </Box>
         </form>
         <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-          >
+          <Typography>Already have an account?</Typography>
+          <Button variant="outlined" type="button" className="link-button" onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}>
             Login
-          </button>
+          </Button>
         </center>
-      </div>
+      </Box>
     );
   }
 }
@@ -151,5 +125,5 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(RegisterPage);
+export default connect(mapStateToProps)(withStyles(styles)(RegisterPage));
 

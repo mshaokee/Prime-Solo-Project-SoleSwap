@@ -80,7 +80,7 @@ class LoginPage extends Component {
               {this.props.errors.loginMessage}
             </Alert>
           )}
-          <Typography className={classes.title} variant="h1">Login</Typography>
+          <Typography className={classes.title} variant="h2">Login</Typography>
           <Box className={classes.inputs}>
             <Box className={classes.input1}>
               <label htmlFor="username">
