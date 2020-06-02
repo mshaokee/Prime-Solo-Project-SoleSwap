@@ -12,8 +12,8 @@ const styles = theme => {
       margin: '0px 10px',
       backgroundColor: 'black',
       color: 'white',
-      // marginTop: '25px',
-      padding: '25px',
+      paddingTop: '3%',
+      paddingBottom: '3%',
       // hover option
       '&:hover': {
         backgroundColor: '#28283e',
