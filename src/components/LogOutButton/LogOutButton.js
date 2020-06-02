@@ -12,10 +12,11 @@ const styles = theme => {
       margin: '0px 10px',
       backgroundColor: 'black',
       color: 'white',
-      marginTop: '25px',
+      // marginTop: '25px',
+      padding: '25px',
       // hover option
       '&:hover': {
-        backgroundColor: '#1e1e2f',
+        backgroundColor: '#28283e',
       }
     }
   })

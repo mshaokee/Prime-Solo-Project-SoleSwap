@@ -27,7 +27,8 @@ const styles = theme => {
       zIndex: '12',
       width: '100%',
       margin: 'auto 0',
-      paddingBottom: '10px',
+      // paddingBottom: '15px',
+      
       // display: 'inline-block'
     },
     navLink: {
@@ -37,10 +38,10 @@ const styles = theme => {
       margin: '0px 10px',
       backgroundColor: 'black',
       color: 'white',
-      marginTop: '25px',
+      padding: '25px',
       // hover option
       '&:hover': {
-        backgroundColor: '#1e1e2f',
+        backgroundColor: '#28283e',
     }},
     navRight: {
       float: 'right',
@@ -55,6 +56,7 @@ const styles = theme => {
 class Nav extends Component {
 
   render() {
+    // allows us to use withStyles in render
     const { classes } = this.props;
     return (
       <Box className={classes.nav} boxShadow={8}>
