@@ -22,9 +22,7 @@ import HomeSelectShoe from '../HomePage/HomeSelectShoe';
 import AllShoes from '../AllShoes/AllShoes';
 import TradeSelectShoe from '../TradePage/TradeSelectShoe';
 import AllSelectShoe from '../AllShoes/AllSelectShoe';
-
 import UserEditShoe from '../UserPage/UserEditShoe';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';

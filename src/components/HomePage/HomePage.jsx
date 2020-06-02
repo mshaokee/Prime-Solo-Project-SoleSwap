@@ -11,8 +11,9 @@ const styles = () => {
         page: {
             margin: '0px',
             overflow: 'hidden',
+            padding: '0px',
             width: '100%',
-            height: '100%'
+            height: '100%',
         },
         title: {
             display: 'inline-block',
@@ -22,8 +23,8 @@ const styles = () => {
             marginBottom: '15px',
             borderBottom: '2px solid black',
             width: '100%',
-            marginRight: '20px',
-            marginLeft: '20px',
+            marginRight: '2%',
+            marginLeft: '2%',
         },
         media: {
             height: '275px',
@@ -38,9 +39,9 @@ const styles = () => {
         },
         card: {
             boxShadow: '0px 0px 2px #28283e',
-            maxWidth: '440px',
-            // justifyContent: 'flex-end',
-            // display: 'flex'
+            maxWidth: '90%',
+            margin: '18px 0px',
+            padding: '5px'
         },
         grid: {
             marginRight: '2%',
@@ -73,7 +74,7 @@ class HomePage extends Component {
             <Box className={classes.page}>
                 <Typography variant="h3" className={classes.title}>Recent Posts</Typography>
                 {/* BEGIN GRID */}
-                <Grid container className={classes.grid} direction="row">
+                <Grid container className={classes.grid} item xs s md l direction="row" justify="center" spacing={2}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
                             <Grid container key={index} item xs s={6} md={4} l={4}>
