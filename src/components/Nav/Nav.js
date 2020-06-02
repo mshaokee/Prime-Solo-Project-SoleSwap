@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 //MUI imports
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 //import withStyles to work with class components to style
 import { withStyles } from '@material-ui/core/styles';
 
@@ -14,7 +14,10 @@ const styles = theme => {
       width: '30%',
       float: 'left',
       lineHeight: '50px',
-      letterSpacing: '3px'
+      letterSpacing: '3px',
+      paddingLeft: '5%',
+      color: 'white',
+      paddingTop: '20px'
     },
     nav: {
       overflow: 'hidden',
@@ -23,7 +26,8 @@ const styles = theme => {
       Top: '0',
       zIndex: '12',
       width: '100%',
-      margin: '0 auto',
+      margin: 'auto 0',
+      paddingBottom: '10px',
       // display: 'inline-block'
     },
     navLink: {
@@ -31,18 +35,18 @@ const styles = theme => {
       float: 'left',
       fontSize: '20px',
       margin: '0px 10px',
-      backgroundColor: 'red',
+      backgroundColor: 'black',
       color: 'white',
-      marginTop: '25px'
+      marginTop: '25px',
       // hover option
-      // '&:hover': {
-      //   backgroundColor: 'blue',
-    },
+      '&:hover': {
+        backgroundColor: '#1e1e2f',
+    }},
     navRight: {
       float: 'right',
       fontSize: '20px',
       margin: '0px 10px',
-      backgroundColor: 'blue',
+      backgroundColor: 'black',
       color: 'white'
     }
   });//end return
@@ -53,9 +57,9 @@ class Nav extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Box className={classes.nav}>
+      <Box className={classes.nav} boxShadow={8}>
         {/* link our title / icon to the home page on click */}
-        <Link to="/home"><h1 className={classes.navTitle}>SoleSwap</h1></Link>
+        <Link to="/home"><Typography variant="h3" className={classes.navTitle}>SoleSwap</Typography></Link>
         <nav className={classes.navRight}>
           {/* Show the link to the info page and the logout button if the user is logged in */}
           <Link to="/home"><Button className={classes.navLink}>Home</Button></Link>
@@ -66,7 +70,7 @@ class Nav extends Component {
           <Link to="/buy"><Button className={classes.navLink}>Buy</Button></Link>
           <Link to="/sell"><Button className={classes.navLink}>Sell</Button></Link>
           <Link to="/trade"><Button className={classes.navLink}>Trade</Button></Link>
-          <Link className={classes.navLink} to="/account">
+          <Link to="/account">
             {/* Show this link if they are logged in or not,
              but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}

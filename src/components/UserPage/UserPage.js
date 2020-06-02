@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Box, Button } from '@material-ui/core';
 const moment = require('moment');
-// import LogOutButton from '../LogOutButton/LogOutButton';
-// import { Link } from 'react-router-dom';
-// let date = moment(`2020-05-26T05:00:00.000Z`).format(`MMM Do YYYY, h:mm a`);
 
 class UserPage extends Component {
 
@@ -20,10 +17,6 @@ class UserPage extends Component {
   handleEdit = (shoe) => {
     console.log('Take me to the Edit Page.');
     this.props.history.push(`/account/edit/${shoe.post_id}`);
-    // this.props.dispatch({
-    //   type: 'fetch_edit_shoe',
-    //   payload: shoe.post_id
-    // })
   }//end handleEdit
 
   render() {
