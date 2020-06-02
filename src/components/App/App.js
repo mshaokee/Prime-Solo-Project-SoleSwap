@@ -40,6 +40,9 @@ const styles = () => {
     //   width: '100 %',
     //   overflowX: 'hidden',
     // }
+    app: {
+      minHeight: '100%',
+    }
   })
 };//end styles
 
