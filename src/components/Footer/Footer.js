@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Footer.css'
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -11,7 +10,9 @@ const styles = () => {
       backgroundColor: 'black',
       color: 'white',
       boxShadow: '0px 0px 2px #28283e',
-      width: '100%'
+      width: '100%',
+      marginTop: 'calc(5% + 60px)',
+      bottom: '0',
     }
 
   })

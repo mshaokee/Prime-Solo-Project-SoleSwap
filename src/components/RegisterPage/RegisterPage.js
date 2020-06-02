@@ -1,5 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//import MUI
+import { Button, Box, TextField, Typography } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = () => {
+  return ({
+    box: {
+      display: 'inline-block',
+      height: '55vh',
+      marginTop: '100px',
+      width: '100%',
+    },
+    alert: {
+      display: 'inline-block',
+      float: 'right',
+      marginRight: '10px',
+      marginTop: '120px',
+      fontSize: '40px',
+      padding: '50px'
+    },
+    title: {
+      borderBottom: '1px solid black',
+      paddingLeft: '30px'
+    },
+    inputs: {
+      marginTop: '50px',
+      marginLeft: '30px'
+    },
+    input1: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    text1: {
+      width: '200px',
+      height: '70px',
+
+    },
+  })
+};//end styles
 
 class RegisterPage extends Component {
   state = {

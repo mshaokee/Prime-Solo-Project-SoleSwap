@@ -1,20 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import MUI
-import {Button, Box} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
+import { Button, Box, TextField, Typography } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => {
-  return({
+  return ({
     box: {
       display: 'inline-block',
-      fontSize: '50px',
-      height: '50px',
-      marginTop: '120px',
-      marginBottom: '15px',
-      borderBottom: '2px solid black',
+      height: '55vh',
+      marginTop: '100px',
       width: '100%',
-    }
+    },
+    alert: {
+      display: 'inline-block',
+      float: 'right',
+      marginRight: '10px',
+      marginTop: '120px',
+      fontSize: '40px',
+      padding: '50px'
+    },
+    title: {
+      borderBottom: '1px solid black',
+      paddingLeft: '30px'
+    },
+    inputs: {
+      marginTop: '50px',
+      marginLeft: '30px'
+    },
+    input1: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    text1: {
+      width: '200px',
+      height: '70px',
+
+    },
   })
 };//end styles
 
@@ -48,57 +71,33 @@ class LoginPage extends Component {
 
   render() {
     //allows us to use MUI on props
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <Box>
-        {this.props.errors.loginMessage && (
-          <h2 className="alert" role="alert">
-            {this.props.errors.loginMessage}
-          </h2>
-        )}
         <form className={classes.box} onSubmit={this.login}>
-          <h1>Login</h1>
-          <Box>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </Box>
-          <Box>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </Box>
-          <Box>
-            {/* <Link to="/home"> */}
-              <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
-            {/* </Link> */}
+          {this.props.errors.loginMessage && (
+            <Alert severity="error" className={classes.alert} role="alert">
+              {this.props.errors.loginMessage}
+            </Alert>
+          )}
+          <Typography className={classes.title} variant="h1">Login</Typography>
+          <Box className={classes.inputs}>
+            <Box className={classes.input1}>
+              <label htmlFor="username">
+                <TextField className={classes.text1} label="Username" type="text" name="username" value={this.state.username} onChange={this.handleInputChangeFor('username')} />
+              </label>
+            </Box>
+            <Box className={classes.input1}>
+              <label htmlFor="password">
+                <TextField className={classes.text1} label="Password" type="password" name="password" value={this.state.password} onChange={this.handleInputChangeFor('password')} />
+              </label>
+            </Box>
+            <Button variant="outlined" type="submit" name="submit">Log In</Button>
           </Box>
         </form>
         <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Sign Up
-          </button>
+          <Typography>Don't have an account?</Typography>
+          <Button type="button" variant="outlined" onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}>Sign Up</Button>
         </center>
       </Box>
     );

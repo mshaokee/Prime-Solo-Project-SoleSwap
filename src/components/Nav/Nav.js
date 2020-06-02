@@ -27,10 +27,8 @@ const styles = theme => {
       zIndex: '12',
       width: '100%',
       margin: 'auto 0',
-      maxHeight: '15%'
-      // paddingBottom: '15px',
-      
-      // display: 'inline-block'
+      minHeight: '80px',
+      maxHeight: '80px',
     },
     navLink: {
       display: 'inline-block',
