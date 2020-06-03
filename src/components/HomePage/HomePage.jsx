@@ -31,7 +31,8 @@ const styles = () => {
             height: '275px',
             maxWidth: '400px',
             position: 'center',
-            width: '100%'
+            width: '100%',
+            boxShadow: '0px 0px 3px 0px'
         },
         button: {
             width: '450px',
@@ -45,6 +46,7 @@ const styles = () => {
             padding: '5px'
         },
         grid: {
+            paddingTop: '10px',
             marginRight: '2%',
             marginLeft: '1%',
             width: '100%'
@@ -60,7 +62,7 @@ class HomePage extends Component {
         this.props.dispatch({
             type: 'fetch_shoes'
         });//end dispatch
-         //takes us back to the top of the page when component loaded
+        //takes us back to the top of the page when component loaded
         window.scrollTo(0, 0);
     };//end componentDidMount
 
@@ -80,7 +82,7 @@ class HomePage extends Component {
                 <Grid container className={classes.grid} item xs s md l direction="row" justify="center" spacing={2}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
-                            <Grid container key={index} item xs s={6} md={4} l={4}>
+                            <Grid key={index} item xs s={6} md={4} l={4}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>

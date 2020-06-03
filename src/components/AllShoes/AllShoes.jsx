@@ -38,7 +38,8 @@ const styles = () => {
             width: '450px',
             maxWidth: '450px',
             position: 'center',
-            width: '100%'
+            width: '100%',
+            boxShadow: '0px 0px 1px 0px'
         },
         button: {
             width: '180px',
@@ -53,6 +54,7 @@ const styles = () => {
             padding: '5px'
         },
         grid: {
+            paddingTop: '10px',
             marginRight: '2%',
             marginLeft: '1%',
             width: '100%'
@@ -101,11 +103,11 @@ class AllShoes extends Component {
                     </>
                 )}
                 {/* BEGIN GRID */}
-                <Grid container className={classes.grid} item xs s md l direction="row" justify="center" spacing={2}>
+                <Grid container className={classes.grid} justify="center" spacing={2}>
                     {this.props.reduxState.allShoesReducer.map((shoe, index) => {
                         let date = moment(shoe.post_date).format('MMM Do, YYYY')
                         return (
-                             <Grid container key={index} item xs={6} s={6} md={4} l={4}>
+                            <Grid key={index}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>
