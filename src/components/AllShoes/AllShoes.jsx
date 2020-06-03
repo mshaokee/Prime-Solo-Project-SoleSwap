@@ -23,10 +23,15 @@ const styles = () => {
             height: '50px',
             marginTop: '120px',
             marginBottom: '15px',
-            borderBottom: '2px solid black',
             width: '100%',
             marginRight: '2%',
             marginLeft: '2%',
+        },
+        description: {
+            marginBottom: '23px',
+            borderBottom: '2px solid black',
+            paddingLeft: '300px',
+            paddingBottom: '5px'
         },
         media: {
             height: '275px',
@@ -36,9 +41,9 @@ const styles = () => {
             width: '100%'
         },
         button: {
-            width: '250px',
+            width: '180px',
             letterSpacing: '5px',
-            paddingTop: '0px'
+            paddingTop: '0px',
         },
         card: {
             boxShadow: '0px 0px 2px #28283e',
@@ -49,7 +54,7 @@ const styles = () => {
         },
         grid: {
             marginRight: '2%',
-            marginLeft: '2%',
+            marginLeft: '1%',
             width: '100%'
         },
         createBtn: {
@@ -86,12 +91,9 @@ class AllShoes extends Component {
         const { classes } = this.props;
         return (
             <Box className={classes.page}>
-                {/* <Box> */}
                 <Typography variant="h3" className={classes.title}>All Shoes</Typography>
-                {/* </Box> */}
-                {/* <Box>
-                    <Typography>DESCRIPTION BOX</Typography>
-                </Box> */}
+                <Typography className={classes.description}>This page views all of our posts. If you would like to create a post, please log in. If you do not have
+                an account please sign up at our log in page.</Typography>
                 {/* BUTTON APPEARS IF USER */}
                 {this.props.user.id && (
                     <>
@@ -115,7 +117,7 @@ class AllShoes extends Component {
                                             <CardActions>
                                                 <Button onClick={(event) => this.handleClick(shoe)} className={classes.button}>DETAILS</Button>
                                                 <Typography className={classes.user}>posted by {shoe.username} on {date}</Typography>
-
+                                                <Typography variant="h6">{shoe.cat_name}</Typography>
                                             </CardActions>
                                         </CardActionArea>
                                     </Card>
@@ -125,21 +127,6 @@ class AllShoes extends Component {
                     })} {/* END MAP */}
                 </Grid>
             </Box>
-
-
-            // <Box>
-            //     <h1>AllShoes</h1>
-            //     <br />
-            //  
-            //     {/* Map all shoes so they can all be displayed on the DOM */}
-            //     {this.props.reduxState.allShoesReducer.map((shoe, index) => {
-            //         return (
-            //             <div key={index}>
-            //                 <img onClick={(event) => this.handleClick(shoe)} src={shoe.post_image} alt={shoe.post_name} width="450px" />
-            //             </div>
-            //         )//end return
-            //     })}
-            // </Box>
         )//end return
     };//end render
 };//end class

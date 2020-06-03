@@ -38,6 +38,10 @@ const styles = () => {
       width: '200px',
       height: '70px',
     },
+    divider: {
+      marginTop: '20px',
+      borderTop: '1px solid black'
+    },
   })
 };//end styles
 
@@ -107,7 +111,7 @@ class RegisterPage extends Component {
             <Button variant="outlined" type="submit" name="submit" value="Sign Up">Sign Up</Button>
           </Box>
         </form>
-        <center>
+        <center className={classes.divider}>
           <Typography>Already have an account?</Typography>
           <Button variant="outlined" type="button" className="link-button" onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}>
             Login

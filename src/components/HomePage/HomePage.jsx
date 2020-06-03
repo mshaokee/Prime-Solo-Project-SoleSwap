@@ -46,7 +46,7 @@ const styles = () => {
         },
         grid: {
             marginRight: '2%',
-            marginLeft: '2%',
+            marginLeft: '1%',
             width: '100%'
         },
     })
