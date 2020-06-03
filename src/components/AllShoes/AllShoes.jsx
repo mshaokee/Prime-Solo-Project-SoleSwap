@@ -86,7 +86,12 @@ class AllShoes extends Component {
         const { classes } = this.props;
         return (
             <Box className={classes.page}>
+                {/* <Box> */}
                 <Typography variant="h3" className={classes.title}>All Shoes</Typography>
+                {/* </Box> */}
+                {/* <Box>
+                    <Typography>DESCRIPTION BOX</Typography>
+                </Box> */}
                 {/* BUTTON APPEARS IF USER */}
                 {this.props.user.id && (
                     <>

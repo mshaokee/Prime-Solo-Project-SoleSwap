@@ -58,7 +58,7 @@ class AllSelectShoe extends Component {
             type: 'fetch_all_detail',
             payload: this.props.match.params.id
         })
-    };
+    };//end componentDidMount
 
     render() {
         //allows us to use MUI withStyles in render
@@ -94,5 +94,5 @@ class AllSelectShoe extends Component {
 
 //connect redux to props
 const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.details })
-//connect to component
+//connect to component and withStyles
 export default connect(putPropsOnState)(withStyles(styles)(AllSelectShoe));
