@@ -11,9 +11,10 @@ const styles = () => {
         page: {
             margin: '0px',
             overflow: 'hidden',
-            padding: '0px',
+            paddingBottom: '75px',
             width: '100%',
             height: '100%',
+            backgroundColor: 'white',
         },
         title: {
             display: 'inline-block',

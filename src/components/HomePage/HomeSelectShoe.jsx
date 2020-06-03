@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-//import MUI
-import { Box, Button, Grid, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions } from '@material-ui/core';
+//import MUI.
+import { Button, Grid, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-//require moment for time
+//require moment so that we can format our date correctly.
 const moment = require('moment');
 
 const styles = () => {
@@ -48,13 +48,13 @@ const styles = () => {
         },
 
     })
-}
+}//end styles
 
 class HomeSelectShoe extends Component {
 
     componentDidMount() {
         console.log('HomeSelectShoe MOUNTED');
-        //send id data to get home shoe details
+        //we want to send our shoe id data back to our saga so that we can specify on our details page.
         this.props.dispatch({
             type: 'fetch_home_detail',
             payload: this.props.match.params.id
@@ -62,28 +62,28 @@ class HomeSelectShoe extends Component {
     };
 
     render() {
-        //allows us to use withStyles with class component
+        //allows us to use withStyles with class component.
         const { classes } = this.props;
         return (
             <Grid>
                 {this.props.detail.map((shoe) => {
                     let date = moment(shoe.post_date).format('MMM Do, YYYY');
                     return (
-                            <Card className={classes.card} variant="outlined" key="shoe.post_id">
-                                <CardActionArea>
-                                    <CardContent>
-                                        <Typography className={classes.title}>{shoe.post_name}</Typography>
-                                        <Typography variant="h6" className={classes.user}>Posted by {shoe.username} on {date}</Typography>
-                                        <Typography className={classes.desc}>{shoe.post_body}</Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActionArea>
-                                    <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name} />
-                                    <CardActions>
-                                        <Link to="/home"><Button className={classes.button} variant="outlined">Back To List</Button></Link>
-                                    </CardActions>
-                                </CardActionArea>
-                            </Card>
+                        <Card className={classes.card} variant="outlined" key="shoe.post_id">
+                            <CardActionArea>
+                                <CardContent>
+                                    <Typography className={classes.title}>{shoe.post_name}</Typography>
+                                    <Typography className={classes.user}>Posted by {shoe.username} on {date} | Topic: {shoe.cat_name}</Typography>
+                                    <Typography className={classes.desc}>{shoe.post_body}</Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActionArea>
+                                <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name} />
+                                <CardActions>
+                                    <Link to="/home"><Button className={classes.button} variant="outlined">Back To List</Button></Link>
+                                </CardActions>
+                            </CardActionArea>
+                        </Card>
                     )//end return
                 })}
             </Grid>

@@ -36,8 +36,9 @@ router.get('/sell/:id', (req, res) => {
 router.get('/home/:id', (req, res) => {
     let id = req.params.id;
     console.log('in /details/home/:id GET');
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username", "cat_name" FROM "post" 
     JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
     WHERE "post_id" = $1;`
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
