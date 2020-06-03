@@ -60,6 +60,8 @@ class HomePage extends Component {
         this.props.dispatch({
             type: 'fetch_shoes'
         });//end dispatch
+         //takes us back to the top of the page when component loaded
+        window.scrollTo(0, 0);
     };//end componentDidMount
 
     //this event pushes us to the selected shoe page by id

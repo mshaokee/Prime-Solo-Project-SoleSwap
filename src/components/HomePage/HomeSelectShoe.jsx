@@ -26,11 +26,10 @@ const styles = () => {
             letterSpacing: '3px',
         },
         media: {
-            height: '400px',
-            maxHeight: '500px',
-            maxWidth: '750px',
+            height: '450px',
+            width: '750px',
             boxShadow: '0px 0px 5px',
-            marginLeft: '5%'
+            marginLeft: '5%',
         },
         card: {
             boxShadow: '0px 0px 3px',
@@ -46,12 +45,10 @@ const styles = () => {
             display: 'wrap',
             marginBottom: '5px',
         },
-
     })
 }//end styles
 
 class HomeSelectShoe extends Component {
-
     componentDidMount() {
         console.log('HomeSelectShoe MOUNTED');
         //we want to send our shoe id data back to our saga so that we can specify on our details page.
@@ -59,13 +56,14 @@ class HomeSelectShoe extends Component {
             type: 'fetch_home_detail',
             payload: this.props.match.params.id
         })
-    };
+    };//end componentDidMount
 
     render() {
         //allows us to use withStyles with class component.
         const { classes } = this.props;
         return (
             <Grid>
+                {/* Map through all the home page shoes to display on the DOM */}
                 {this.props.detail.map((shoe) => {
                     let date = moment(shoe.post_date).format('MMM Do, YYYY');
                     return (
@@ -80,7 +78,7 @@ class HomeSelectShoe extends Component {
                             <CardActionArea>
                                 <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name} />
                                 <CardActions>
-                                    <Link to="/home"><Button className={classes.button} variant="outlined">Back To List</Button></Link>
+                                    <Link to="/home"><Button className={classes.button} variant="outlined">Back Home</Button></Link>
                                 </CardActions>
                             </CardActionArea>
                         </Card>

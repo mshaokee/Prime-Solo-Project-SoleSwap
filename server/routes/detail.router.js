@@ -6,8 +6,9 @@ const router = express.Router();
 router.get('/buy/:id', (req, res) => {
     let id = req.params.id
     console.log('in /details/buy/:id GET')
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username", "cat_name" FROM "post" 
     JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
     WHERE "post_id" = $1;`
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
@@ -21,8 +22,9 @@ router.get('/buy/:id', (req, res) => {
 router.get('/sell/:id', (req, res) => {
     let id = req.params.id
     console.log('in /details/sell/:id GET')
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username", "cat_name" FROM "post" 
     JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
     WHERE "post_id" = $1;`
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
@@ -52,8 +54,9 @@ router.get('/home/:id', (req, res) => {
 router.get('/trade/:id', (req, res) => {
     let id = req.params.id;
     console.log('in /details/trade/:id GET');
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username", "cat_name" FROM "post" 
     JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
     WHERE "post_id" = $1;`
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
@@ -67,13 +70,14 @@ router.get('/trade/:id', (req, res) => {
 router.get('/all/:id', (req, res) => {
     let id = req.params.id;
     console.log('in /details/all/:id GET');
-    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username" FROM "post" 
+    let queryString = `SELECT "post_id", "post_name", "post_body", "post_image", "post_date", "username", "cat_name" FROM "post" 
     JOIN "user" ON "post".user_id = "user".id
+    JOIN "category" ON "post".post_cat = "category".cat_id
     WHERE "post_id" = $1;`
     pool.query(queryString, [id]).then((result) => {
         res.send(result.rows);
     }).catch((err) => {
-        console.log('Error in /all/trade :', err);
+        console.log('Error in /all/all :', err);
         res.sendStatus(500);
     });//end pool query
 });//end get router
