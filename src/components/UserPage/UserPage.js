@@ -33,12 +33,12 @@ class UserPage extends Component {
               <h4>{shoe.post_name}</h4>
               <h4>Date posted: {postDate}</h4>
               <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
-              <Button onClick={(event) => this.handleEdit(shoe)} variant="outlined">EDIT</Button>
+              {this.props.user.id &&
+                <Button onClick={(event) => this.handleEdit(shoe)} variant="outlined">EDIT</Button>
+              }
             </Box>
           )
         })}
-        {/* <p>Your ID is: {this.props.user.id}</p> */}
-        {/* <Link to="/home"><LogOutButton className="log-in" /></Link> */}
       </Box>
     )//end return
   }//end render

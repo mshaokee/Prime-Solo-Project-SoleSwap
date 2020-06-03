@@ -71,10 +71,10 @@ class UserEditShoe extends Component {
 
     //manages description change
     handleDesc = (event) => {
-      this.props.dispatch({
-          type: 'change_description',
-          payload: event.target.value
-      })
+        this.props.dispatch({
+            type: 'change_description',
+            payload: event.target.value
+        })
     };//end handleDesc
 
     //manages submitting information with PUT
@@ -114,33 +114,37 @@ class UserEditShoe extends Component {
                 {/* MAP THROUGH THIS */}
                 {/* {this.props.editShoe.map((shoe, index) => {
                     return ( */}
-                        <Box>
-                            <h2>Title: <TextField onChange={(event) => this.handleTitle(event)} value={shoe.post_name} /></h2>
-                            <h2>Description: <TextField onChange={(event) => this.handleDesc(event)} value={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
-                            {/* SELECTOR OPTION FROM MUI */}
-                            <FormControl className={classes.formControl}>
-                                <Typography variant="h4">Current Topic: {shoe.cat_name}</Typography>
-                                <Select
-                                    variant="outlined"
-                                    open={this.state.open}
-                                    onClose={this.handleClose}
-                                    onOpen={this.handleOpen}
-                                    value={this.state.topic}
-                                    onChange={(event) => this.handleChange(event)}>
-                                    <MenuItem value={1}><em>Buy</em></MenuItem>
-                                    <MenuItem value={2}><em>Sell</em></MenuItem>
-                                    <MenuItem value={3}><em>Trade</em></MenuItem>
-                                </Select>
-                            </FormControl>
-                            <br />
-                            <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
-                            <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
-                           <Link to="/account"><Button onClick={this.handleDelete}variant="outlined">DELETE</Button></Link>
-                        </Box>
+                <Box>
+                    <h2>Title: <TextField onChange={(event) => this.handleTitle(event)} value={shoe.post_name} /></h2>
+                    <h2>Description: <TextField onChange={(event) => this.handleDesc(event)} value={shoe.post_body} multiline rowsMax={5} variant="filled" /></h2>
+                    {/* SELECTOR OPTION FROM MUI */}
+                    <FormControl className={classes.formControl}>
+                        <Typography variant="h4">Current Topic: {shoe.cat_name}</Typography>
+                        <Select
+                            variant="outlined"
+                            open={this.state.open}
+                            onClose={this.handleClose}
+                            onOpen={this.handleOpen}
+                            value={this.state.topic}
+                            onChange={(event) => this.handleChange(event)}>
+                            <MenuItem value={1}><em>Buy</em></MenuItem>
+                            <MenuItem value={2}><em>Sell</em></MenuItem>
+                            <MenuItem value={3}><em>Trade</em></MenuItem>
+                        </Select>
+                    </FormControl>
+                    <br />
+                    <img src={shoe.post_image} alt={shoe.post_name} width="400px" />
+                    {this.props.user.id === shoe.user_id &&
+                    <>
+                        <Button onClick={this.handleSubmit} variant="outlined">Submit Changes</Button>
+                        <Link to="/account"><Button onClick={this.handleDelete} variant="outlined">DELETE</Button></Link>
+                        </>
+                    }
+                </Box>
             </Box>
         )
     }
 };//end class
 
-const putPropsOnState = reduxState => ({ reduxState, editShoe: reduxState.editShoeReducer, theShoe: reduxState.shoeToEdit })
+const putPropsOnState = reduxState => ({ reduxState, user: reduxState.user, editShoe: reduxState.editShoeReducer, theShoe: reduxState.shoeToEdit })
 export default connect(putPropsOnState)(withStyles(styles)(UserEditShoe));

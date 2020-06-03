@@ -105,7 +105,7 @@ class AllShoes extends Component {
                     {this.props.reduxState.allShoesReducer.map((shoe, index) => {
                         let date = moment(shoe.post_date).format('MMM Do, YYYY')
                         return (
-                            <Grid container key={index} item xs s={6} md={4} l={4}>
+                             <Grid container key={index} item xs={6} s={6} md={4} l={4}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>
@@ -122,7 +122,7 @@ class AllShoes extends Component {
                                         </CardActionArea>
                                     </Card>
                                 }  {/* END TERNARY */}
-                            </Grid>
+                             </Grid>
                         )//end return
                     })} {/* END MAP */}
                 </Grid>
