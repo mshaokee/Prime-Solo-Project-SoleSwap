@@ -1,10 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+//import authentication - this way only users can access (server side).
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-// GET router fo account
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
+// GET router for account
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const id = req.user.id;
     let queryString = `
         SELECT * FROM "user"
         JOIN "post" ON "user".id = "post".user_id

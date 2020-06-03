@@ -122,6 +122,7 @@ class CreatePost extends Component {
     }
 };//end class
 
+
 const reduxStateOnProps = state => ({ user }) => ({ user: state.user });
 // const putPropsOnState = reduxState => ({reduxState})
 export default connect(reduxStateOnProps)(withStyles(styles)(CreatePost));

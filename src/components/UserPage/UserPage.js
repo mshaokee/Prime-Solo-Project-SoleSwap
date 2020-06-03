@@ -9,8 +9,7 @@ class UserPage extends Component {
     console.log('UserPage MOUTED');
     // console.log(`CHECK THE DATE`, date);
     this.props.dispatch({
-      type: 'fetch_account',
-      payload: this.props.user.id
+      type: 'fetch_account'
     })
   };//end componentDidMount
 

@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+//import authentication - this way only users can access (server side).
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // Routes
 //GET route for Home Page
@@ -26,7 +28,6 @@ router.get('/all', (req, res) => {
     JOIN "user" ON "post".user_id = "user".id
     JOIN "category" ON "post".post_cat = "category".cat_id
     ORDER BY "post_id" DESC;`
-
     pool.query(queryString).then((result) => {
         res.send(result.rows);
     }).catch((err) => {
@@ -51,7 +52,7 @@ router.get('/shoebox', (req, res) => {
 });//end get router for Shoe Box
 
 //POST route for creating posts
-router.post('/addShoe', (req, res) => {
+router.post('/addShoe', rejectUnauthenticated, (req, res) => {
     console.log('in /shoes/addShoe POST', req.body);
     let image = req.body.image;
     let description = req.body.description;

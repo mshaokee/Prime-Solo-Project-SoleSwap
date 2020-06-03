@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+//import authentication - this way only users can access (server side).
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 //GET for account to edit
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     let id = req.params.id;
     console.log('in /account/edit/:id GET');
     let queryString = `
@@ -21,7 +23,7 @@ router.get('/:id', (req, res) => {
 });//end get router
 
 //PUT for shoe edit
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', rejectUnauthenticated, (req, res) => {
     console.log('Back from PUT /account/edit/update/:id', req.body, req.params.id);
     let id = req.params.id;
     let postName = req.body.postName;
@@ -38,7 +40,7 @@ router.put('/update/:id', (req, res) => {
 });//end put router
 
 //DELETE for shoe edit
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     console.log('Back from DELETE /account/edit/delete/:id', req.params.id);
     let id = req.params.id;
     let queryString = `DELETE FROM "post" WHERE post_id = $1`
@@ -49,7 +51,6 @@ router.delete('/delete/:id', (req, res) => {
         res.sendStatus(500);
     });//end pool query
 });//end delete router
-
 
 
 module.exports = router;
