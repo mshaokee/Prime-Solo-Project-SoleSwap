@@ -31,10 +31,6 @@ class UserEditShoe extends Component {
             type: 'fetch_edit_shoe',
             payload: this.props.match.params.id
         })
-        // this.props.dispatch({
-        //     type: 'edit_this_shoe',
-        //     payload: this.state
-        // })
     }//end componentDidMount
 
     //manage close and open options for topic selector
@@ -97,8 +93,6 @@ class UserEditShoe extends Component {
             type: 'delete',
             payload: this.props.match.params.id
         })
-        //takes you back to your shoes
-        // this.props.history.push(`/account`);
     };//end handleDelete
 
 

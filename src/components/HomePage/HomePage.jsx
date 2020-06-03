@@ -26,6 +26,7 @@ const styles = () => {
             width: '100%',
             marginRight: '2%',
             marginLeft: '2%',
+            paddingBottom: '5px'
         },
         media: {
             height: '275px',
@@ -79,10 +80,10 @@ class HomePage extends Component {
             <Box className={classes.page}>
                 <Typography variant="h3" className={classes.title}>Recent Posts</Typography>
                 {/* BEGIN GRID */}
-                <Grid container className={classes.grid} item xs s md l direction="row" justify="center" spacing={2}>
+                <Grid container className={classes.grid} justify="center" spacing={2}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
-                            <Grid key={index} item xs s={6} md={4} l={4}>
+                            <Grid key={index} item md={4} >
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>
@@ -106,7 +107,7 @@ class HomePage extends Component {
     }//end render
 };//end class
 
-//connect redux to props
+//put props on redux
 const putPropsOnState = reduxState => ({ reduxState })
 //wrap withStyles to allow MUI styling
 export default connect(putPropsOnState)(withStyles(styles)(HomePage));

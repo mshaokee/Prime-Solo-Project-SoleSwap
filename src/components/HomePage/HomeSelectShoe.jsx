@@ -89,7 +89,7 @@ class HomeSelectShoe extends Component {
     }//end render
 };//end class
 
-//put redux state on props
+//put props on redux
 const putPropsOnState = reduxState => ({ reduxState, detail: reduxState.details })
 //connect withStyles and props to component
 export default connect(putPropsOnState)(withStyles(styles)(HomeSelectShoe));

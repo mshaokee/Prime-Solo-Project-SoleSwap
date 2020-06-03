@@ -78,7 +78,7 @@ class AllShoes extends Component {
         //GET request to saga which will retrieve data from DB and send to our reducer.
         this.props.dispatch({
             type: 'fetch_all'
-        })
+        });//end dispatch
         //takes us back to the top of the page when component loaded
         window.scrollTo(0, 0);
     };//end componentDidMount

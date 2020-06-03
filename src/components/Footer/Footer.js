@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = () => {
   return ({
     footer: {
-      marginTop: 'calc(100vh - 150px - 450px)',
+      marginTop: 'calc(100vh - 150px - 500px)',
       padding: '20px 0px 20px 20px',
       backgroundColor: 'black',
       color: 'white',

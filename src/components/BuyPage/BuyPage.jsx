@@ -77,7 +77,9 @@ class BuyPage extends Component {
         //dispatch to our saga GET request to return data
         this.props.dispatch({
             type: 'fetch_all'
-        })
+        });//end dispatch
+        //takes us back to the top of the page when component loaded
+        window.scrollTo(0, 0);
     };//end componentDidMount
 
     handleClick = (shoe) => {
@@ -105,7 +107,7 @@ class BuyPage extends Component {
                         let date = moment(shoe.post_date).format('MMM Do, YYYY')
                         return (
                             <Grid key={index}>
-                                {/* allows home page to show all shoes from all categories with ternary */}
+                                {/* ternary that allows only shows shoes in category 1, or buy */}
                                 {shoe.post_cat === 1 &&
                                     <Card variant="outlined" className={classes.card}>
                                         <CardActionArea>
@@ -126,39 +128,11 @@ class BuyPage extends Component {
                     })} {/* END MAP */}
                 </Grid>
             </Box>
-
-
-            // <Box>
-            //     <h1>BuyPage</h1>
-            //     <br />
-            //     {/* BUTTON APPEARS IF USER */}
-            //     {this.props.user.id && (
-            //         <>
-            //             <Link to="/create"><Button variant="outlined">Create Post</Button></Link>
-            //         </>
-            //     )}
-            //     {/* GET DATA FROM ALL SHOES AND SPECIFY */}
-            //     {this.props.reduxState.allShoesReducer.map((shoe, index) => {
-            //         return (
-            //             <div key={index}>
-            //                 {shoe.post_cat === 1 &&
-            //                     <img
-            //                         onClick={(event) => this.handleClick(shoe)}
-            //                         src={shoe.post_image}
-            //                         alt={shoe.post_name}
-            //                         width="300px"
-            //                     />
-            //                 }
-            //             </div>
-            //         )
-            //     }//end map
-            //     )}
-            // </Box>
-        )
-    }
+        )//end return
+    };//end render
 };//end class
 
-//put redux on props
+//put props on redux
 const putPropsOnState = reduxState => ({ reduxState, user: reduxState.user });
 //connect to component with withStyles
 export default connect(putPropsOnState)(withStyles(styles)(BuyPage));
