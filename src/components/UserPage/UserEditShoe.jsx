@@ -161,6 +161,7 @@ class UserEditShoe extends Component {
         // console.log('What is the date the shoe was posted:', shoe.post_date)
         return (
             <Box>
+                <Button>HEllO</Button>
                 <Typography variant="h2" className={classes.header}>Edit Your Shoe Info</Typography>
                 <Link to="/account"><Button className={classes.backBtn} variant="outlined">Go Back To My Shoes</Button></Link>
                 {/* Data below will be a part of PUT */}
@@ -199,7 +200,6 @@ class UserEditShoe extends Component {
                             <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name} />
                         </CardContent>
                     </Card>
-                    {/* <img src={shoe.post_image} alt={shoe.post_name} width="400px" /> */}
                 </Box>
             </Box>
         )
