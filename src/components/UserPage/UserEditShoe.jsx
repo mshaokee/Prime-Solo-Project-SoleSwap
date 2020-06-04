@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 //import MUI
 import { withStyles } from '@material-ui/core/styles';
-import { Box, Button, TextField, FormControl, MenuItem, Select, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
+import { Box, Button, TextField, FormControl, MenuItem, Select, Typography, Card, CardContent, CardMedia, InputLabel } from '@material-ui/core';
 //require moment for date formatting
 const moment = require('moment');
 
@@ -26,8 +26,6 @@ const styles = theme => {
             textAlign: 'center',
             paddingBottom: '38px',
             borderBottom: '2px solid black',
-            marginLeft: '1%',
-            marginRight: '1%',
         },
         backBtn: {
             marginLeft: '2%',
@@ -65,7 +63,8 @@ const styles = theme => {
         },
         media: {
             height: '500px',
-            maxWidth: '750px'
+            maxWidth: '750px',
+            boxShadow: '0px 0px 2px'
         }
     })
 };//end styles
@@ -171,6 +170,7 @@ class UserEditShoe extends Component {
                     {/* SELECTOR OPTION FROM MUI */}
                     <Typography variant="h4" className={classes.contTitle}>Current Topic: {shoe.cat_name}</Typography>
                     <FormControl className={classes.formControl}>
+                        <InputLabel>{shoe.cat_name}</InputLabel>
                         <Select
                             className={classes.selector}
                             variant="outlined"
@@ -196,7 +196,7 @@ class UserEditShoe extends Component {
                     {/* Displays Image on the DOM */}
                     <Card>
                         <CardContent>
-                            <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name}/>
+                            <CardMedia className={classes.media} image={shoe.post_image} title={shoe.post_name} />
                         </CardContent>
                     </Card>
                     {/* <img src={shoe.post_image} alt={shoe.post_name} width="400px" /> */}

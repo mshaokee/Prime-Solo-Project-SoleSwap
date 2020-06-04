@@ -2,16 +2,49 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom';
-import { Box, Button, TextField, InputLabel, FormControl, MenuItem, Select } from '@material-ui/core';
+import { Box, Button, TextField, InputLabel, FormControl, MenuItem, Select, Typography } from '@material-ui/core';
 
 const styles = theme => {
     return ({
         button: {
-            display: 'block',
+            display: 'inline-block',
+            marginLeft: '12%',
+            padding: '10px',
+            marginBottom: '50px',
+        },
+        createBtn: {
+            padding: '14px',
+            marginLeft: '67%',
+            width: '250px'
         },
         formControl: {
-            minWidth: '120px'
-        }
+            minWidth: '120px',
+            marginLeft: '2%'
+        },
+        header: {
+            display: 'inline-block',
+            height: '50px',
+            marginTop: '120px',
+            marginBottom: '15px',
+            width: '100%',
+            textAlign: 'center',
+            paddingBottom: '38px',
+            borderBottom: '2px solid black',
+        },
+        inputs: {
+            marginLeft: '2%'
+        },
+        title: {
+            width: '300px'
+        },
+        desc: {
+            marginLeft: '20px',
+            width: '1000px'
+        },
+        url: {
+            margin: '30px 0px 50px 0px',
+            width: '1320px'
+        },
     })
 };//end styles
 
@@ -32,18 +65,21 @@ class CreatePost extends Component {
         window.scrollTo(0, 0);
     }
 
+    //manages closing selector
     handleClose = () => {
         this.setState({
             open: false
         })
     };//end close of selector
 
+    //manages opening the selector
     handleOpen = () => {
         this.setState({
             open: true
         })
     };//end open of selector
 
+    //gets the value data entered to our selector
     handleChange = (event) => {
         console.log('You have set the topic value', event.target.value);
         this.setState({
@@ -51,6 +87,7 @@ class CreatePost extends Component {
         })
     };//end handleChange for topic selector
 
+    //gets the value data entered for our description
     shoeDesc = (event) => {
         console.log('adding to the shoe description:', event.target.value);
         this.setState({
@@ -58,6 +95,7 @@ class CreatePost extends Component {
         })
     };//end shoe description
 
+    //gets the image url data
     imageUrl = (event) => {
         console.log('adding shoe url:', event.target.value);
         this.setState({
@@ -65,6 +103,7 @@ class CreatePost extends Component {
         })
     };//end shoe description
 
+    //gets the value data entered for our title
     title = (event) => {
         console.log('adding shoe title:', event.target.value);
         this.setState({
@@ -72,6 +111,7 @@ class CreatePost extends Component {
         })
     };//end shoe description
 
+    //manages the POST data we've retrieved from our change to state
     createPost = () => {
         console.log('You have clicked Create Post.');
         this.props.dispatch({
@@ -84,25 +124,27 @@ class CreatePost extends Component {
                 title: this.state.title
             }
         })
-        // this.props.history.push('/account')
+        this.props.history.push('/account')
     };//end create post
 
     render() {
-        console.log('Create Post MOUNTED 2', this.props.user);
+        // console.log('Create Post MOUNTED 2', this.props.user);
         const { classes } = this.props;
         return (
             <Box>
-                <h1>CreatePost</h1>
-                <Link to="/allShoes"><Button variant="outlined">All Shoes Page</Button></Link>
-                <Link to="/buy"><Button variant="outlined">Buyers Page</Button></Link>
-                <Link to="/sell"><Button variant="outlined">Sellers Page</Button></Link>
-                <Link to="/trade"><Button variant="outlined">Traders Page</Button></Link >
-                <br />
-                <br />
-                <TextField onChange={(event) => this.title(event)} label="post title" variant="outlined" />
-                <TextField onChange={(event) => this.shoeDesc(event)} label="description of shoe" variant="outlined" />
-                <TextField onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
-                {/* <Button onClick={this.handleOpen}>OPEN ME</Button> */}
+                <Typography variant="h2" className={classes.header}>Create A Post</Typography>
+                {/* back buttons */}
+                <Link to="/allShoes"><Button className={classes.button} variant="outlined">All Shoes Page</Button></Link>
+                <Link to="/buy"><Button className={classes.button} variant="outlined">Buyers Page</Button></Link>
+                <Link to="/sell"><Button className={classes.button} variant="outlined">Sellers Page</Button></Link>
+                <Link to="/trade"><Button className={classes.button} variant="outlined">Traders Page</Button></Link >
+                {/* input fields */}
+                <Box className={classes.inputs}>
+                    <TextField className={classes.title} onChange={(event) => this.title(event)} label="post title" variant="outlined" />
+                    <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe" multiline rowsMax={5} variant="filled"  />
+                    <TextField className={classes.url} onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
+                </Box>
+                {/* Begin selector  */}
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
                     <Select
@@ -117,8 +159,7 @@ class CreatePost extends Component {
                         <MenuItem value={3}><em>Trade</em></MenuItem>
                     </Select>
                 </FormControl>
-
-                <Link to="/account"><Button variant="outlined" size="large" onClick={this.createPost}>Create</Button></Link>
+                <Button className={classes.createBtn} variant="outlined" size="large" onClick={this.createPost}>Create</Button>
             </Box>
         )
     }

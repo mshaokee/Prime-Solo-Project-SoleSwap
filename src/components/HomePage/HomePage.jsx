@@ -24,8 +24,7 @@ const styles = () => {
             marginBottom: '15px',
             borderBottom: '2px solid black',
             width: '100%',
-            marginRight: '2%',
-            marginLeft: '2%',
+            paddingLeft: '20px',
             paddingBottom: '5px'
         },
         media: {

@@ -21,8 +21,6 @@ const styles = () => {
       marginTop: '120px',
       marginBottom: '15px',
       width: '100%',
-      marginRight: '2%',
-      marginLeft: '2%',
       textAlign: 'center',
       paddingBottom: '38px',
       borderBottom: '2px solid black'
