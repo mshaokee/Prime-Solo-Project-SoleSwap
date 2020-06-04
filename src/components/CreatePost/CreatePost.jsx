@@ -1,3 +1,7 @@
+//import sweetalert
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import './create.scss';
+//import react and router
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -115,10 +119,18 @@ class CreatePost extends Component {
 
     //manages the POST data we've retrieved from our change to state
     createPost = () => {
-        console.log('You have clicked Create Post.');
-        if(this.state.description || this.state.image || this.state.topic || this.state.title === ''){
-        alert('Please fill in all of the inputs!');
+        // console.log('You have clicked Create Post.');
+        //only create post if all inputs have been filled
+        //if one of the inputs are missing, sweetalert to fill inputs!
+        if(this.state.description === '' || this.state.image === '' || this.state.title  === '' || this.state.topic === ''){
+        Swal.fire({
+            title: 'Empty Inputs!',
+            text: 'Please fill in all of the inputs before creating.',
+            confirmButtonText: 'OK'
+        })
         } else {
+        //if all of the inputs have been filled, sweetalert that post has been created!
+        //send dispatch to POST to our database and take us to our account page
         this.props.dispatch({
             type: 'create_post',
             payload: {
@@ -130,6 +142,11 @@ class CreatePost extends Component {
             }
         })
         this.props.history.push('/account')
+        Swal.fire({
+            title: 'Post has been Created!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        })
     }//end if else
     };//end create post
 
