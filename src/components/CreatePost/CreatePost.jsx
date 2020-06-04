@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom';
+//import MUI
 import { Box, Button, TextField, InputLabel, FormControl, MenuItem, Select, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
 
 const styles = theme => {
     return ({
@@ -114,6 +116,9 @@ class CreatePost extends Component {
     //manages the POST data we've retrieved from our change to state
     createPost = () => {
         console.log('You have clicked Create Post.');
+        if(this.state.description || this.state.image || this.state.topic || this.state.title === ''){
+        alert('Please fill in all of the inputs!');
+        } else {
         this.props.dispatch({
             type: 'create_post',
             payload: {
@@ -125,6 +130,7 @@ class CreatePost extends Component {
             }
         })
         this.props.history.push('/account')
+    }//end if else
     };//end create post
 
     render() {
@@ -141,7 +147,7 @@ class CreatePost extends Component {
                 {/* input fields */}
                 <Box className={classes.inputs}>
                     <TextField className={classes.title} onChange={(event) => this.title(event)} label="post title" variant="outlined" />
-                    <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe" multiline rowsMax={5} variant="filled"  />
+                    <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe and best contact method" multiline rowsMax={5} variant="filled"  />
                     <TextField className={classes.url} onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
                 </Box>
                 {/* Begin selector  */}
