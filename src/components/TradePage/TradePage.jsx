@@ -35,10 +35,8 @@ const styles = () => {
         },
         media: {
             height: '275px',
-            width: '450px',
             maxWidth: '450px',
             position: 'center',
-            width: '100%',
             boxShadow: '0px 0px 1px 0px'
         },
         button: {

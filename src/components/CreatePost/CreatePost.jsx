@@ -28,6 +28,8 @@ class CreatePost extends Component {
 
     componentDidMount() {
         console.log('Create Post MOUNTED');
+        //takes us back to the top of the page when component loaded
+        window.scrollTo(0, 0);
     }
 
     handleClose = () => {

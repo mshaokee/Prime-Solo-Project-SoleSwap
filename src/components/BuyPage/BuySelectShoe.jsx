@@ -57,6 +57,8 @@ class BuySelectShoe extends Component {
             type: 'fetch_buy_detail',
             payload: this.props.match.params.id
         });//end dispatch
+        //takes us back to the top of the page when component loaded
+        window.scrollTo(0, 0);
     };//end componentDidMount
 
     render() {

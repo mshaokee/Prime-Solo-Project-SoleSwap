@@ -84,7 +84,7 @@ class RegisterPage extends Component {
         <form className={classes.box} onSubmit={this.registerUser}>
           <Typography variant="h2" className={classes.title}>Create an Account</Typography>
           {this.props.errors.registrationMessage && (
-            <Alert severity="error" className={classes.alert} className="alert" role="alert" >
+            <Alert severity="error" className={classes.alert} role="alert" >
               {this.props.errors.registrationMessage}
             </Alert>
           )}

@@ -58,6 +58,8 @@ class AllSelectShoe extends Component {
             type: 'fetch_all_detail',
             payload: this.props.match.params.id
         })
+        //takes us back to the top of the page when component loaded
+        window.scrollTo(0, 0);
     };//end componentDidMount
 
     render() {
