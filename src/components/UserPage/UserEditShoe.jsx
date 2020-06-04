@@ -1,3 +1,7 @@
+//import sweetalert
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import './user.scss';
+//import react and browser
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,6 +10,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { Box, Button, TextField, FormControl, MenuItem, Select, Typography, Card, CardContent, CardMedia, InputLabel } from '@material-ui/core';
 //require moment for date formatting
 const moment = require('moment');
+
+
 
 const styles = theme => {
     return ({
@@ -146,12 +152,29 @@ class UserEditShoe extends Component {
 
     //manages deleting information with DELETE
     handleDelete = () => {
-        this.props.dispatch({
-            type: 'delete',
-            payload: this.props.match.params.id
-        })
-        //take us to account page
-        this.props.history.push(`/account`);
+        Swal.fire({
+            title: 'Delete your post?',
+            icon: 'question',
+            confirmButtonText: 'Delete it anyways.',
+            confirmButtonColor: '#cc0000',
+            showCancelButton: true,
+            cancelButtonText: 'Keep the post.'
+        }).then((result) => {
+            //dispatch if delete is okay'ed
+            if (result.value) {
+                this.props.dispatch({
+                    type: 'delete',
+                    payload: this.props.match.params.id
+                })
+                //confirm our deletion
+                Swal.fire({
+                    title: 'Deleted!',
+                    icon: 'success',
+                })
+                //take us to account page
+                this.props.history.push(`/account`);
+            }//end if statement
+        })//end sweetalert
     };//end handleDelete
 
 
