@@ -138,6 +138,12 @@ class UserEditShoe extends Component {
     //manages submitting information with PUT
     handleSubmit = () => {
         console.log('UPDATING data');
+        //confirm button OK
+        Swal.fire({
+            title: 'Post has been edited!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+        })
         //send our new data to our saga to send to database
         this.props.dispatch({
             type: 'edit_shoe',
@@ -148,14 +154,6 @@ class UserEditShoe extends Component {
         })
         //takes you back to your shoes
         this.props.history.push(`/account`);
-        //reload page when loaded
-        window.location.reload();
-        //confirm button OK
-        Swal.fire({
-            title: 'Post has been created!',
-            icon: 'success',
-            confirmButtonText: 'OK',
-        })
     };//end handelSubmit
 
     //manages deleting information with DELETE
