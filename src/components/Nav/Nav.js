@@ -8,7 +8,7 @@ import { Box, Button, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 //styles for material ui
-const styles = theme => {
+const styles = () => {
   return ({
     navTitle: {
       width: '30%',

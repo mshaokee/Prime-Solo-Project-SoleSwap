@@ -181,7 +181,7 @@ class UserEditShoe extends Component {
                 this.props.history.push(`/account`);
             }//end if statement
             //reload page when loaded
-            window.location.reload();
+            // window.location.reload();
         })//end sweetalert
     };//end handleDelete
 

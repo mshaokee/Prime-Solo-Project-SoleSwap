@@ -144,7 +144,7 @@ class CreatePost extends Component {
             //take us to account page
             this.props.history.push('/account')
             //reload page when loaded
-            window.location.reload();
+            // window.location.reload();
             Swal.fire({
                 title: 'Post has been Created!',
                 icon: 'success',
