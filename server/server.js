@@ -15,7 +15,7 @@ const detailRouter = require('./routes/detail.router');
 const accountRouter = require('./routes/account.router');
 const editRouter = require('./routes/edit.router');
 
-//heroku require
+//heroku require path
 const path = require('path');
 
 // Body parser middleware
@@ -39,7 +39,7 @@ app.use('/account/edit', editRouter);
 // Serve static files
 app.use(express.static('build'));
 
-// Adding for HEROKU - CATCH ALL -> Go here instead if above is not found.
+// Adding for HEROKU - CATCH ALL -> Go here instead if above routes are not found.
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });

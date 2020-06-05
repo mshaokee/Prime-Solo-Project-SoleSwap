@@ -108,7 +108,7 @@ class UserPage extends Component {
                       </CardContent>
                       <CardActions>
                         <Button variant="outlined" onClick={(event) => this.handleEdit(shoe)} className={classes.button}>EDIT</Button>
-                        <Typography className={classes.user}>last updated: {date}</Typography>
+                        <Typography className={classes.user}>Last updated: {date}</Typography>
                         <Typography variant="h6">{shoe.cat_name}</Typography>
                       </CardActions>
                     </CardActionArea>
