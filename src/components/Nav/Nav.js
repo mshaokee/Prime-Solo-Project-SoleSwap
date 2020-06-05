@@ -65,8 +65,6 @@ class Nav extends Component {
         <nav className={classes.navRight}>
           {/* Show the link to the info page and the logout button if the user is logged in */}
           <Link to="/home"><Button className={classes.navLink}>Home</Button></Link>
-          {/* <Link className="navLink" to="/shoeBox">Shoe Box</Link> !!THIS WILL BE A STRETCH - RATHER DO LIKES */}
-          {/* ESSENTIALLY DROPDOWN MENU */}
           {/* When viewing shoes set it into a drop down menu */}
           <Link to="/allShoes"><Button className={classes.navLink}>All Shoes</Button></Link>
           <Link to="/buy"><Button className={classes.navLink}>Buy</Button></Link>

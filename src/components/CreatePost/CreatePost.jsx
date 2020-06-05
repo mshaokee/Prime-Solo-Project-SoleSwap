@@ -140,7 +140,7 @@ class CreatePost extends Component {
                 user: this.props.user.id,
                 title: this.state.title
             }
-        })
+        });//end dispatch
         this.props.history.push('/account')
         Swal.fire({
             title: 'Post has been Created!',
@@ -152,6 +152,7 @@ class CreatePost extends Component {
 
     render() {
         // console.log('Create Post MOUNTED 2', this.props.user);
+        //allows us to use withStyles through props on classes
         const { classes } = this.props;
         return (
             <Box>
@@ -161,13 +162,13 @@ class CreatePost extends Component {
                 <Link to="/buy"><Button className={classes.button} variant="outlined">Buyers Page</Button></Link>
                 <Link to="/sell"><Button className={classes.button} variant="outlined">Sellers Page</Button></Link>
                 <Link to="/trade"><Button className={classes.button} variant="outlined">Traders Page</Button></Link >
-                {/* input fields */}
+                {/* input fields, data will be gathered through function */}
                 <Box className={classes.inputs}>
                     <TextField className={classes.title} onChange={(event) => this.title(event)} label="post title" variant="outlined" />
                     <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe and best contact method" multiline rowsMax={5} variant="filled"  />
                     <TextField className={classes.url} onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
                 </Box>
-                {/* Begin selector  */}
+                {/* Begin selector and send selected data to our function.*/}
                 <FormControl className={classes.formControl}>
                     <InputLabel>Topic</InputLabel>
                     <Select
@@ -184,8 +185,8 @@ class CreatePost extends Component {
                 </FormControl>
                 <Button className={classes.createBtn} variant="outlined" size="large" onClick={this.createPost}>Create</Button>
             </Box>
-        )
-    }
+        )//end return
+    };//end render
 };//end class
 
 

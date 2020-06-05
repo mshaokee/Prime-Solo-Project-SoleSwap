@@ -88,6 +88,7 @@ class TradePage extends Component {
     };//end handleClick
 
     render() {
+        //allows us to use withStyles on props through classes
         const { classes } = this.props;
         return (
             <Box className={classes.page}>
@@ -127,8 +128,8 @@ class TradePage extends Component {
                     })} {/* END MAP */}
                 </Grid>
             </Box>
-        )
-    }
+        )//end return
+    };//end render
 };//end class
 
 //put props on redux

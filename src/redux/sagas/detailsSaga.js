@@ -3,6 +3,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 
 //watcher
 function* detailsSaga() {
+    //take all the data send from our components and send to their detail sagas
     yield takeLatest('fetch_all_detail', allDetail);
     yield takeLatest('fetch_buy_detail', buyDetails);
     yield takeLatest('fetch_sell_detail', sellDetails);

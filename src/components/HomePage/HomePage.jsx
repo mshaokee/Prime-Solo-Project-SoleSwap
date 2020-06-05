@@ -55,7 +55,6 @@ const styles = () => {
 };//end styles
 
 class HomePage extends Component {
-
     componentDidMount() {
         console.log('Home Page MOUNTED', this.props.reduxState);
         //dispatch to redux GET

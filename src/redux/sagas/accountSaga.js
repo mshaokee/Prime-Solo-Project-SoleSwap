@@ -10,6 +10,7 @@ function* accountSaga(){
 function* getAccount(){
     console.log('------> in getAccount saga')
     try{
+        //send GET request to /accounts and send data to our reducer
         const response = yield axios.get(`/accounts`)
         yield put({
             type: 'get_account',

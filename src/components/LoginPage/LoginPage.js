@@ -44,6 +44,7 @@ const styles = () => {
 };//end styles
 
 class LoginPage extends Component {
+  //state set for on change of username and password input
   state = {
     username: '',
     password: '',
@@ -107,10 +108,8 @@ class LoginPage extends Component {
 }
 
 // Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
 });
-
+//connect redux with withStyles and our component
 export default connect(mapStateToProps)(withStyles(styles)(LoginPage));

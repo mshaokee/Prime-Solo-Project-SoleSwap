@@ -9,6 +9,7 @@ function* allShoesSaga(){
 //generator
 function* allShoes(){
     try{
+        //send GET request to /shoes/all and send data to our reducer
         const response = yield axios.get('/shoes/all')
         yield put({
             type: 'get_all',

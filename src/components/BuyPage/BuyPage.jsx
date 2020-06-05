@@ -93,7 +93,7 @@ class BuyPage extends Component {
                 <Typography variant="h3" className={classes.title}>Buyers</Typography>
                 <Typography className={classes.description}>This page views posts where users are looking to buy a shoe. If you would like to create a post,
                 please log in. If you do not have an account please sign up at our log in page.</Typography>
-                {/* BUTTON APPEARS IF USER */}
+                {/* This allows the create post button to only appear if a user is logged in. */}
                 {this.props.user.id && (
                     <>
                         <Link to="/create"><Button className={classes.createBtn} variant="outlined">Create Post</Button></Link>

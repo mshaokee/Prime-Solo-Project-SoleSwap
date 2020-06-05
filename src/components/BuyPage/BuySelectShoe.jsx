@@ -49,7 +49,6 @@ const styles = () => {
 };//end styles
 
 class BuySelectShoe extends Component {
-
     componentDidMount() {
         console.log('BuySelectShoe MOUNTED');
         //send data to grab specific shoe
@@ -62,10 +61,11 @@ class BuySelectShoe extends Component {
     };//end componentDidMount
 
     render() {
+        //allows us to use withStyles on props through classes
         const { classes } = this.props;
         return (
             <Grid>
-                {/* Map through all the home page shoes to display on the DOM */}
+                {/* Map through our reducer for specific details that have been passed */}
                 {this.props.detail.map((shoe) => {
                     // set variable for moment that way we can display it using the moment function
                     let date = moment(shoe.post_date).format('MMM Do, YYYY');

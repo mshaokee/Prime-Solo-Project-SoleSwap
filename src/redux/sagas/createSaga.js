@@ -8,14 +8,15 @@ function* createSaga(){
 
 //generator function
 function* createPost(action){
-    console.log('------> in create Post Saga', action.payload);
+    // console.log('------> in create Post Saga', action.payload);
+    //create variables so it looks cleaner when sending down
     let description = action.payload.description;
     let image = action.payload.image;
     let title = action.payload.title;
     let catId = action.payload.catId;
     let user = action.payload.user;
     try{
-        yield axios.post('/shoes/addShoe', { description: description, image: image, title: title, catId: catId, user: user});
+        yield axios.post('/shoes/addShoe', { description, image, title, catId, user});
     }catch(err){
         console.log('Error in create post saga:', err)
     }

@@ -28,18 +28,13 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 // import ShoeBox from '../ShoeBox/ShoeBox';
 
+//need this for body margin, previously made
 import './App.css';
 //import MUI
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => {
   return ({
-    // body: {
-    //   fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-    //   margin: '0px',
-    //   width: '100 %',
-    //   overflowX: 'hidden',
-    // }
     app: {
       minHeight: '100%',
     }
@@ -50,10 +45,12 @@ const styles = () => {
 
 class App extends Component {
   componentDidMount() {
+    //sends dispatch to get user data
     this.props.dispatch({ type: 'FETCH_USER' })
   }
 
   render() {
+    //allows us to use withStyles on props through classes
     const { classes } = this.props;
     return (
       <Router>
@@ -98,8 +95,9 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
-    )
-  }
-}
+    )//end return
+  };//end render
+};//end class
 
+//connect withStyles with our component and redux
 export default connect()(withStyles(styles)(App));
