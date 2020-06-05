@@ -77,8 +77,6 @@ class UserPage extends Component {
     });//end dispatch
     //takes us back to the top of the page when component loaded
     window.scrollTo(0, 0);
-    //reload page when loaded
-    // window.location.reload();
   };//end componentDidMount
 
   handleEdit = (shoe) => {

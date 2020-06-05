@@ -148,6 +148,12 @@ class UserEditShoe extends Component {
         })
         //takes you back to your shoes
         this.props.history.push(`/account`);
+        //confirm button OK
+        Swal.fire({
+            title: 'Post has been created!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+        })
     };//end handelSubmit
 
     //manages deleting information with DELETE
