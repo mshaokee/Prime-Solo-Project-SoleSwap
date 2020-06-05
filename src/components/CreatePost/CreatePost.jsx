@@ -143,13 +143,14 @@ class CreatePost extends Component {
             });//end dispatch
             //take us to account page
             this.props.history.push('/account')
-            //reload page when loaded
-            // window.location.reload();
+            //confirmation that we have created a post
             Swal.fire({
                 title: 'Post has been Created!',
                 icon: 'success',
                 confirmButtonText: 'OK'
             })
+            // want to set account data so that it displays without having to refresh
+            this.forceUpdate();
         }//end if else
     };//end create post
 

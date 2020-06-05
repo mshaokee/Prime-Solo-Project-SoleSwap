@@ -179,9 +179,9 @@ class UserEditShoe extends Component {
                 })
                 //take us to account page
                 this.props.history.push(`/account`);
+                //// want to set our account data after deleting so that it doesn't show
+                this.forceUpdate();
             }//end if statement
-            //reload page when loaded
-            // window.location.reload();
         })//end sweetalert
     };//end handleDelete
 
