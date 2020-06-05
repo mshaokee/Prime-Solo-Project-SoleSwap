@@ -93,7 +93,7 @@ class UserPage extends Component {
     const { classes } = this.props;
     return (
       <Box className={classes.page}>
-        <Typography variant="h5" className={classes.title}><Typography className={classes.name}>{username}</Typography>  been a member since: {date}</Typography>
+        <Typography variant="h5" className={classes.title}><Typography className={classes.name}>{username}</Typography>has been a member since: {date}</Typography>
         {/* BEGIN GRID to display users shoes */}
         <Grid container className={classes.shoeGrid} justify="center" spacing={2}>
           {this.props.account.map((shoe, index) => {

@@ -115,7 +115,7 @@ class BuyPage extends Component {
                                             </CardContent>
                                             <CardActions>
                                                 <Button onClick={(event) => this.handleClick(shoe)} className={classes.button}>DETAILS</Button>
-                                                <Typography className={classes.user}>posted by {shoe.username} on {date}</Typography>
+                                                <Typography className={classes.user}>Posted by {shoe.username} on {date}</Typography>
                                                 <Typography variant="h6">{shoe.cat_name}</Typography>
                                             </CardActions>
                                         </CardActionArea>
