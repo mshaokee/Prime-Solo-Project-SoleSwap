@@ -148,6 +148,8 @@ class UserEditShoe extends Component {
         })
         //takes you back to your shoes
         this.props.history.push(`/account`);
+        //reload page when loaded
+        window.location.reload();
         //confirm button OK
         Swal.fire({
             title: 'Post has been created!',
@@ -180,6 +182,8 @@ class UserEditShoe extends Component {
                 //take us to account page
                 this.props.history.push(`/account`);
             }//end if statement
+            //reload page when loaded
+            window.location.reload();
         })//end sweetalert
     };//end handleDelete
 

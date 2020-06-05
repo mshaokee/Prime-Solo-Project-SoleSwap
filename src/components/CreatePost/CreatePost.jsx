@@ -122,32 +122,35 @@ class CreatePost extends Component {
         // console.log('You have clicked Create Post.');
         //only create post if all inputs have been filled
         //if one of the inputs are missing, sweetalert to fill inputs!
-        if(this.state.description === '' || this.state.image === '' || this.state.title  === '' || this.state.topic === ''){
-        Swal.fire({
-            title: 'Empty Inputs!',
-            text: 'Please fill in all of the inputs before creating.',
-            confirmButtonText: 'OK'
-        })
+        if (this.state.description === '' || this.state.image === '' || this.state.title === '' || this.state.topic === '') {
+            Swal.fire({
+                title: 'Empty Inputs!',
+                text: 'Please fill in all of the inputs before creating.',
+                confirmButtonText: 'OK'
+            })
         } else {
-        //if all of the inputs have been filled, sweetalert that post has been created!
-        //send dispatch to POST to our database and take us to our account page
-        this.props.dispatch({
-            type: 'create_post',
-            payload: {
-                description: this.state.description,
-                image: this.state.image,
-                catId: this.state.topic,
-                user: this.props.user.id,
-                title: this.state.title
-            }
-        });//end dispatch
-        this.props.history.push('/account')
-        Swal.fire({
-            title: 'Post has been Created!',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        })
-    }//end if else
+            //if all of the inputs have been filled, sweetalert that post has been created!
+            //send dispatch to POST to our database and take us to our account page
+            this.props.dispatch({
+                type: 'create_post',
+                payload: {
+                    description: this.state.description,
+                    image: this.state.image,
+                    catId: this.state.topic,
+                    user: this.props.user.id,
+                    title: this.state.title
+                }
+            });//end dispatch
+            //take us to account page
+            this.props.history.push('/account')
+            //reload page when loaded
+            window.location.reload();
+            Swal.fire({
+                title: 'Post has been Created!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        }//end if else
     };//end create post
 
     render() {
@@ -165,7 +168,7 @@ class CreatePost extends Component {
                 {/* input fields, data will be gathered through function */}
                 <Box className={classes.inputs}>
                     <TextField className={classes.title} onChange={(event) => this.title(event)} label="post title" variant="outlined" />
-                    <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe and best contact method" multiline rowsMax={5} variant="filled"  />
+                    <TextField className={classes.desc} onChange={(event) => this.shoeDesc(event)} label="description of shoe and best contact method" multiline rowsMax={5} variant="filled" />
                     <TextField className={classes.url} onChange={(event) => this.imageUrl(event)} label="image url address" variant="outlined" />
                 </Box>
                 {/* Begin selector and send selected data to our function.*/}
