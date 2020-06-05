@@ -37,12 +37,13 @@ const styles = () => {
       margin: '0px 10px',
       backgroundColor: 'black',
       color: 'white',
-      paddingTop: '3%',
-      paddingBottom: '3%',
+      paddingTop: '23px',
+      paddingBottom: '23px',
       // hover option
       '&:hover': {
         backgroundColor: '#28283e',
-    }},
+      }
+    },
     navRight: {
       float: 'right',
       fontSize: '20px',
