@@ -81,7 +81,7 @@ class HomePage extends Component {
                 <Grid container className={classes.grid} justify="center" spacing={2}>
                     {this.props.reduxState.homeReducer.map((shoe, index) => {
                         return (
-                            <Grid key={index} item md={4} >
+                            <Grid key={index}>
                                 {/* allows home page to show all shoes from all categories with ternary */}
                                 {shoe.post_cat === 1 | 2 | 3 &&
                                     <Card variant="outlined" className={classes.card}>
