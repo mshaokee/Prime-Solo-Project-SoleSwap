@@ -141,7 +141,7 @@ class CreatePost extends Component {
                     title: this.state.title
                 }
             });//end dispatch
-            //take us to account page
+            //take us to my shoes
             this.props.history.push('/account')
             //confirmation that we have created a post
             Swal.fire({
@@ -149,8 +149,6 @@ class CreatePost extends Component {
                 icon: 'success',
                 confirmButtonText: 'OK'
             })
-            // want to set account data so that it displays without having to refresh
-            this.forceUpdate();
         }//end if else
     };//end create post
 

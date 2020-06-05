@@ -152,7 +152,7 @@ class UserEditShoe extends Component {
                 updatedDate: moment().format()
             }
         })
-        //takes you back to your shoes
+        //takes us back to my shoes
         this.props.history.push(`/account`);
     };//end handelSubmit
 
@@ -179,8 +179,6 @@ class UserEditShoe extends Component {
                 })
                 //take us to account page
                 this.props.history.push(`/account`);
-                //// want to set our account data after deleting so that it doesn't show
-                this.forceUpdate();
             }//end if statement
         })//end sweetalert
     };//end handleDelete

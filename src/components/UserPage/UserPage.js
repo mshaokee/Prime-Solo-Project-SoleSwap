@@ -94,10 +94,10 @@ class UserPage extends Component {
         <Typography variant="h5" className={classes.title}><Typography className={classes.name}>{username}</Typography>has been a member since: {date}</Typography>
         {/* BEGIN GRID to display users shoes */}
         <Grid container className={classes.shoeGrid} justify="center" spacing={2}>
-          {this.props.account.map((shoe, index) => {
+          {this.props.account.map((shoe) => {
             let date = moment(shoe.post_date).format('MMM Do, YYYY')
             return (
-              <Grid key={index}>
+              <Grid key={shoe.id}>
                 {/* ternary that shows all shoes sold by this user*/}
                 {shoe.post_cat === 1 | 2 | 3 &&
                   <Card variant="outlined" className={classes.card}>
