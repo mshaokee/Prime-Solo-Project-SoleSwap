@@ -11,36 +11,30 @@ To see a demo of Soleswap please visit [https://soleswap.herokuapp.com/home](htt
 ## Screen Shots of Soleswap
 Here are some screen shots of Soleswap.
 
-Landing Page: 
+**Landing Page:**
 ![Landing Page](./screenshots/home.PNG)
 
-Login Screen:
-![Login Screen](./screenshots/login.PNG)
-
-Account Page: 
+**Account Page:** 
 ![Account Page](./screenshots/account.PNG)
 
-All Shoes Page:
+**All Shoes Page:**
 ![All Shoes Page](./screenshots/allshoes.PNG)
 
-Create Page:
+**Create Page:**
 ![Create Page](./screenshots/create.PNG)
 
-Edit Page:
+**Edit Page:**
 ![Edit Page](./screenshots/edit.PNG)
-
-Delete Option:
-![Delete Option](./screenshots/delete.PNG)
 
 ## Prerequisites
 
 Software required to install this application are as listed:
 
-⋅⋅* Node.js
+* Node.js
 
-⋅⋅* PostgreSQL
+* PostgreSQL
 
-⋅⋅* Nodemon
+* Nodemon
 
 ## Installation
 
@@ -102,23 +96,23 @@ To use this web application feel free to follow these steps.
 
 ## Technologies
 
-⋅⋅* React.js
+* React.js
 
-⋅⋅* Redux.js
+* Redux.js
 
-⋅⋅* Redux-Saga
+* Redux-Saga
 
-⋅⋅* Express.js
+* Express.js
 
-⋅⋅* Node.js
+* Node.js
 
-⋅⋅* moment.js
+* moment.js
 
-⋅⋅* sweetalert2
+* sweetalert2
 
-⋅⋅* Material-UI
+* Material-UI
 
-⋅⋅* Heroku
+* Heroku
 
 ## Acknowledgement
 
