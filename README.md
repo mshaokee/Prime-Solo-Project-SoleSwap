@@ -12,25 +12,25 @@ To see a demo of Soleswap please visit [https://soleswap.herokuapp.com/home](htt
 Here are some screen shots of Soleswap.
 
 Landing Page: 
-[Landing Page](./screenshots/home.PNG)
+![Landing Page](./screenshots/home.PNG)
 
 Login Screen:
-[Login Screen](./screenshots/login.PNG)
+![Login Screen](./screenshots/login.PNG)
 
 Account Page: 
-[Account Page](./screenshots/account.PNG)
+![Account Page](./screenshots/account.PNG)
 
 All Shoes Page:
-[All Shoes Page](./screenshots/allshoes.PNG)
+![All Shoes Page](./screenshots/allshoes.PNG)
 
 Create Page:
-[Create Page](./screenshots/create.PNG)
+![Create Page](./screenshots/create.PNG)
 
 Edit Page:
-[Edit Page](./screenshots/edit.PNG)
+![Edit Page](./screenshots/edit.PNG)
 
 Delete Option:
-[Delete Option](./screenshots/delete.PNG)
+![Delete Option](./screenshots/delete.PNG)
 
 
 
