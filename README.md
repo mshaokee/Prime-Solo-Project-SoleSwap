@@ -42,7 +42,7 @@ Software required to install this application are as listed:
 
 ## Installation
 
-1.) Create a database named shoe_web and enter these queries.
+1.) Create a database named ```shoe_web``` and run these queries,
 ```
 CREATE TABLE "user" (
 	"id" SERIAL PRIMARY KEY,
@@ -76,6 +76,35 @@ CREATE TABLE "post" (
 INSERT INTO "category" ('cat_name', 'cat_description')
 VALUES ('Buy', 'Buyers Category'), ('Sell', 'Sellers Category'), ('Trade', 'Traders Category');
 ```
+2.) Open your source code editor and run ```npm install```
+3.) Run ```npm run server``` in your terminal
+4.) Run ```npm run client``` in your terminal which will open up a new browser tab to view the application
 
+## Usage
+
+To use this web application feel free to follow these steps.
+
+1.) Click on ```Login``` on the top right of the page.
+2.) Click on the ```Sign Up``` option at the bottom of the page.
+3.) Enter your information and ```Sign Up```. This will take you to your account page.
+4.) Browse topics using the navigation bar at the top of the page.
+5.) Create a post from the topic pages by clicking ```Create Post``` and filling in the required inputs.
+6.) ```Edit``` your posts as needed from your account page once a post has been made.
+
+## Technologies
+
+⋅⋅* React.js
+⋅⋅* Redux.js
+⋅⋅* Redux-Saga
+⋅⋅* Express.js
+⋅⋅* Node.js
+⋅⋅* moment.js
+⋅⋅* sweetalert2
+⋅⋅* Material-UI
+⋅⋅* Heroku
+
+## Acknowledgement
+
+Thanks to Prime Digital Academy for their amazing instructors who helped guide me on my journey. Those including Dane, Dev, and Chris Black were a huge help and my wonderful cohort Lamport for their support and excellent minds. Without these people, I wouldn't be able to come as far as I have now.
 
 
