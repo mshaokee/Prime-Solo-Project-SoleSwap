@@ -26,15 +26,14 @@ Here are some screen shots of Soleswap.
 **Edit Page:**
 ![Edit Page](./screenshots/edit.PNG)
 
-## Prerequisites
 
-Software required to install this application are as listed:
+## Prerequisites 
 
-* Node.js
+Software required to run this application
 
-* PostgreSQL
-
-* Nodemon
+* [Node.js](https://nodejs.org/en/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Nodemon](https://nodemon.io/)
 
 ## Installation
 
@@ -97,21 +96,13 @@ To use this web application feel free to follow these steps.
 ## Technologies
 
 * React.js
-
 * Redux.js
-
 * Redux-Saga
-
 * Express.js
-
 * Node.js
-
 * moment.js
-
 * sweetalert2
-
 * Material-UI
-
 * Heroku
 
 ## Acknowledgement
