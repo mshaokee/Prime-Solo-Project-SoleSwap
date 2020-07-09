@@ -109,4 +109,10 @@ To use this web application feel free to follow these steps.
 
 Thanks to Prime Digital Academy for their amazing instructors who helped guide me on my journey. Those including Dane, Dev, and Chris Black were a huge help and my wonderful cohort Lamport for their support and excellent minds. Without these people, I wouldn't be able to come as far as I have now.
 
+## Support
+
+If you have any further questions, concerns, or suggestions please feel free to contact me at my email listed.
+
+Shaokee Moua | m.shaokee@gmail.com
+
 
